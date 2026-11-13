@@ -45,19 +45,12 @@ def threads_label(t):
     return "1 thread" if t == 1 else "runtime default threads"
 
 
-BUSY = 1.0  # a 1-minute load average at or above this means another workload was running
-
-
 def load_note(load_1min, total_cpus, threads=None):
-    note = (f"Background load (1-minute load average, sampled before and after every "
+    note = (f"System load (1-minute load average, sampled before and after every "
             f"process) ranged from {load_1min['min']:.2f} to {load_1min['max']:.2f} "
-            f"on {total_cpus} CPUs.")
-    if load_1min["max"] >= BUSY:
-        note += (" Another workload was running on the machine during part of this table")
-        note += (", so these multi-thread numbers are noisy: they compete with it for cores."
-                 if threads == 0 else
-                 "; with one inference thread the effect is smaller, but the tails (p95, p99) "
-                 "are less reliable than the medians.")
+            f"on {total_cpus} CPUs. The load average lags by about a minute and counts "
+            f"this benchmark's own processes, so it rises during the run even on an "
+            f"otherwise idle machine.")
     return note
 
 
