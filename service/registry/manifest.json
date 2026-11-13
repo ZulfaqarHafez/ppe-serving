@@ -1,0 +1,48 @@
+{
+  "schema": "ppe-model-manifest/1",
+  "name": "ppe-yolov8s",
+  "version": "2026.11.11-320-int8dyn",
+  "description": "YOLOv8s PPE detector, 6 classes, exported to ONNX at 320 px with dynamic int8 weights. The same file the in-browser demo on zulfaqarhafez.com runs.",
+  "artifact": {
+    "filename": "ppe_yolov8s_320_int8dyn.onnx",
+    "sha256": "d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2",
+    "size_bytes": 11366765,
+    "source": "https://zulfaqarhafez.com/models/ppe/ppe_yolov8s_320_int8dyn.onnx",
+    "format": "onnx",
+    "opset": 12
+  },
+  "io": {
+    "input": {"name": "images", "dtype": "float32", "shape": [1, 3, 320, 320], "layout": "NCHW, RGB, 0 to 1, letterboxed with grey 114"},
+    "output": {"name": "output0", "dtype": "float32", "shape": [1, 10, 2100], "layout": "rows 0-3 cx, cy, w, h in letterboxed pixels; rows 4-9 class scores; no objectness, no NMS in the graph"},
+    "classes": ["Gloves", "Helmet", "No-Helmet", "No-gloves", "No-vest", "Vest"],
+    "decode": "per-class NMS at IoU 0.7, default score threshold 0.25 (as on the site)"
+  },
+  "lineage": {
+    "training_repository": "https://github.com/ZulfaqarHafez/aai3001_deep_learning",
+    "checkpoint": "best_deep.pt (YOLOv8s, 11.1M parameters)",
+    "framework": "Ultralytics 8.4.210",
+    "export": "Ultralytics ONNX export, opset 12, imgsz 320, no NMS, then onnxruntime quantize_dynamic (QUInt8) from the fp32 320 export",
+    "export_script": "eval/export_onnx.py",
+    "trained_by": "course project teammates (university course AAI3001); Zulfaqar Hafez was a team member"
+  },
+  "licence": {
+    "model": "AGPL-3.0 (Ultralytics YOLOv8; check the Ultralytics licence terms before reuse)",
+    "dataset": "CC BY 4.0, Personal Protective Equipment v5, Roboflow Universe workspace maxis, https://universe.roboflow.com/maxis/personal-protective-equipment-dtt2i-9qixs",
+    "service_code": "no licence granted yet"
+  },
+  "metrics": {
+    "source": {
+      "repository": "https://github.com/ZulfaqarHafez/aai3001_deep_learning",
+      "commit": "77a260a1b873dbcce7b430aa83b48a3ee618e382",
+      "file": "eval/results/onnx_export.json",
+      "key": "variants.int8dyn_320"
+    },
+    "split": "held-out test split, 255 images, 1,237 boxes",
+    "eval": "ultralytics val, imgsz 320, batch 1, CPU, 2026-11-11",
+    "test_map50": 0.4135,
+    "test_map50_95": 0.1867,
+    "test_precision": 0.548,
+    "test_recall": 0.491,
+    "note": "Copied from the course repository's eval file; not re-measured by this service."
+  }
+}
