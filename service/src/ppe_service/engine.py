@@ -91,6 +91,10 @@ def load_session(model_path: Path, intra_op_threads: int) -> Any:
     """An ONNX Runtime CPU session. Run() is thread-safe, so the workers share it."""
     import onnxruntime as ort
 
+    # No telemetry from a server, and only errors from the runtime's own logger
+    # (it otherwise warns that it cannot persist a device id on a read-only disk).
+    ort.disable_telemetry_events()
+    ort.set_default_logger_severity(3)
     options = ort.SessionOptions()
     options.intra_op_num_threads = intra_op_threads
     options.inter_op_num_threads = 1
