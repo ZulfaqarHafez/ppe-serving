@@ -1,0 +1,42 @@
+# The PPE model (YOLOv8s, 320 px, dynamic int8 weights) is not committed. It is
+# downloaded from the public site and checked against a pinned SHA-256. Pass
+# -DPPE_MODEL=/path/to/file to use a local copy (it must have the same hash).
+
+set(PPE_MODEL_NAME "ppe_yolov8s_320_int8dyn.onnx")
+set(PPE_MODEL_URL "https://zulfaqarhafez.com/models/ppe/${PPE_MODEL_NAME}")
+set(PPE_MODEL_SHA256 "d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2")
+set(PPE_MODEL "" CACHE FILEPATH "Local copy of ${PPE_MODEL_NAME} (optional)")
+option(PPE_FETCH_MODEL "Download the model when PPE_MODEL is not set" ON)
+
+set(PPE_MODEL_PATH "")
+if(PPE_MODEL)
+  file(SHA256 "${PPE_MODEL}" _hash)
+  if(NOT _hash STREQUAL PPE_MODEL_SHA256)
+    message(FATAL_ERROR "${PPE_MODEL} has SHA-256 ${_hash}, expected ${PPE_MODEL_SHA256}")
+  endif()
+  set(PPE_MODEL_PATH "${PPE_MODEL}")
+elseif(PPE_FETCH_MODEL)
+  set(_model "${PPE_CACHE_DIR}/models/${PPE_MODEL_NAME}")
+  set(_hash "")
+  if(EXISTS "${_model}")
+    file(SHA256 "${_model}" _hash)
+  endif()
+  if(NOT _hash STREQUAL PPE_MODEL_SHA256)
+    message(STATUS "Downloading ${PPE_MODEL_URL}")
+    file(DOWNLOAD "${PPE_MODEL_URL}" "${_model}.part"
+         EXPECTED_HASH SHA256=${PPE_MODEL_SHA256} TLS_VERIFY ON STATUS _status)
+    list(GET _status 0 _code)
+    if(NOT _code EQUAL 0)
+      file(REMOVE "${_model}.part")
+      message(FATAL_ERROR "Download of ${PPE_MODEL_URL} failed: ${_status}")
+    endif()
+    file(RENAME "${_model}.part" "${_model}")
+  endif()
+  set(PPE_MODEL_PATH "${_model}")
+endif()
+
+if(PPE_MODEL_PATH)
+  message(STATUS "PPE model: ${PPE_MODEL_PATH}")
+else()
+  message(STATUS "PPE model: none (tests that need it are skipped)")
+endif()

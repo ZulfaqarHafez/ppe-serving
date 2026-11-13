@@ -1,0 +1,8 @@
+# LeakSanitizer suppressions. Only for third-party prebuilt libraries, which
+# are not built with the sanitizers. Each entry says why it is here.
+
+# libonnxruntime.so.1 (the prebuilt 1.29.0 release, built without sanitizers)
+# leaves one 14-byte malloc allocation unfreed at exit, from inside the
+# library itself (no project frame on the stack). Seen when a session is
+# created; reported as "Direct leak of 14 byte(s)".
+leak:libonnxruntime.so

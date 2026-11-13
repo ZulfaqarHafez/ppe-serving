@@ -1,0 +1,336 @@
+{
+ "model": "ppe_yolov8s_320_int8dyn.onnx",
+ "licence": "CC BY 4.0",
+ "dataset": "Personal Protective Equipment v5, Roboflow Universe workspace maxis",
+ "datasetUrl": "https://universe.roboflow.com/maxis/personal-protective-equipment-dtt2i-9qixs",
+ "decode": "letterbox to 320 with grey 114, class-wise NMS at IoU 0.7, as in src/components/demos/ppeDetect.ts",
+ "samples": [
+  {
+   "id": "site-backs",
+   "testFile": "ppe_0305_jpg.rf.dcb8ae3362275cc2272871bad7575a10.jpg",
+   "width": 640,
+   "height": 486,
+   "bytes": 28002,
+   "thumb": {
+    "width": 176,
+    "height": 134,
+    "bytes": 4822
+   },
+   "labelled": {
+    "Helmet": 3,
+    "Vest": 3
+   },
+   "labelledTotal": 6,
+   "at": {
+    "0.25": {
+     "found": 5,
+     "missed": 1,
+     "falseAlarms": 0,
+     "missedByClass": {
+      "Helmet": 1
+     },
+     "detections": [
+      {
+       "label": "Vest",
+       "score": 0.553,
+       "matched": true
+      },
+      {
+       "label": "Vest",
+       "score": 0.524,
+       "matched": true
+      },
+      {
+       "label": "Vest",
+       "score": 0.515,
+       "matched": true
+      },
+      {
+       "label": "Helmet",
+       "score": 0.259,
+       "matched": true
+      },
+      {
+       "label": "Helmet",
+       "score": 0.256,
+       "matched": true
+      }
+     ]
+    },
+    "0.5": {
+     "found": 3,
+     "missed": 3,
+     "falseAlarms": 0,
+     "missedByClass": {
+      "Helmet": 3
+     },
+     "detections": [
+      {
+       "label": "Vest",
+       "score": 0.553,
+       "matched": true
+      },
+      {
+       "label": "Vest",
+       "score": 0.524,
+       "matched": true
+      },
+      {
+       "label": "Vest",
+       "score": 0.515,
+       "matched": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "rooftop-cctv",
+   "testFile": "ppe_0576_jpg.rf.f0a7da3930541bfb1d5d9e5cfc7c4744.jpg",
+   "width": 640,
+   "height": 360,
+   "bytes": 16568,
+   "thumb": {
+    "width": 176,
+    "height": 99,
+    "bytes": 2216
+   },
+   "labelled": {
+    "Helmet": 1,
+    "No-vest": 2
+   },
+   "labelledTotal": 3,
+   "at": {
+    "0.25": {
+     "found": 3,
+     "missed": 0,
+     "falseAlarms": 1,
+     "missedByClass": {},
+     "detections": [
+      {
+       "label": "No-Helmet",
+       "score": 0.6,
+       "matched": false
+      },
+      {
+       "label": "No-vest",
+       "score": 0.566,
+       "matched": true
+      },
+      {
+       "label": "No-vest",
+       "score": 0.513,
+       "matched": true
+      },
+      {
+       "label": "Helmet",
+       "score": 0.298,
+       "matched": true
+      }
+     ]
+    },
+    "0.5": {
+     "found": 2,
+     "missed": 1,
+     "falseAlarms": 1,
+     "missedByClass": {
+      "Helmet": 1
+     },
+     "detections": [
+      {
+       "label": "No-Helmet",
+       "score": 0.6,
+       "matched": false
+      },
+      {
+       "label": "No-vest",
+       "score": 0.566,
+       "matched": true
+      },
+      {
+       "label": "No-vest",
+       "score": 0.513,
+       "matched": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "plant-cctv",
+   "testFile": "file_1_519_jpg.rf.26f08b7d2a236da2b3a6d74cbc481842.jpg",
+   "width": 640,
+   "height": 640,
+   "bytes": 60568,
+   "thumb": {
+    "width": 176,
+    "height": 176,
+    "bytes": 8116
+   },
+   "labelled": {
+    "No-vest": 1,
+    "No-Helmet": 1
+   },
+   "labelledTotal": 2,
+   "at": {
+    "0.25": {
+     "found": 2,
+     "missed": 0,
+     "falseAlarms": 0,
+     "missedByClass": {},
+     "detections": [
+      {
+       "label": "No-vest",
+       "score": 0.694,
+       "matched": true
+      },
+      {
+       "label": "No-Helmet",
+       "score": 0.627,
+       "matched": true
+      }
+     ]
+    },
+    "0.5": {
+     "found": 2,
+     "missed": 0,
+     "falseAlarms": 0,
+     "missedByClass": {},
+     "detections": [
+      {
+       "label": "No-vest",
+       "score": 0.694,
+       "matched": true
+      },
+      {
+       "label": "No-Helmet",
+       "score": 0.627,
+       "matched": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "hi-vis-walk",
+   "testFile": "ppe_0222_jpg.rf.3a2e47250cfc193f251f6bdec757edb0.jpg",
+   "width": 640,
+   "height": 450,
+   "bytes": 44306,
+   "thumb": {
+    "width": 176,
+    "height": 124,
+    "bytes": 4346
+   },
+   "labelled": {
+    "Helmet": 2,
+    "Vest": 2
+   },
+   "labelledTotal": 4,
+   "at": {
+    "0.25": {
+     "found": 3,
+     "missed": 1,
+     "falseAlarms": 2,
+     "missedByClass": {
+      "Helmet": 1
+     },
+     "detections": [
+      {
+       "label": "Vest",
+       "score": 0.514,
+       "matched": false
+      },
+      {
+       "label": "Vest",
+       "score": 0.493,
+       "matched": true
+      },
+      {
+       "label": "No-Helmet",
+       "score": 0.46,
+       "matched": false
+      },
+      {
+       "label": "Helmet",
+       "score": 0.328,
+       "matched": true
+      },
+      {
+       "label": "Vest",
+       "score": 0.309,
+       "matched": true
+      }
+     ]
+    },
+    "0.5": {
+     "found": 1,
+     "missed": 3,
+     "falseAlarms": 0,
+     "missedByClass": {
+      "Helmet": 2,
+      "Vest": 1
+     },
+     "detections": [
+      {
+       "label": "Vest",
+       "score": 0.514,
+       "matched": true
+      }
+     ]
+    }
+   }
+  },
+  {
+   "id": "packing-cctv",
+   "testFile": "PP02img440_jpg.rf.06e419b5f7858200320e5b7cf83b46d7.jpg",
+   "width": 640,
+   "height": 360,
+   "bytes": 22592,
+   "thumb": {
+    "width": 176,
+    "height": 99,
+    "bytes": 3500
+   },
+   "labelled": {
+    "No-gloves": 4,
+    "Gloves": 2,
+    "No-Helmet": 3,
+    "No-vest": 3
+   },
+   "labelledTotal": 12,
+   "at": {
+    "0.25": {
+     "found": 0,
+     "missed": 12,
+     "falseAlarms": 1,
+     "missedByClass": {
+      "No-gloves": 4,
+      "Gloves": 2,
+      "No-Helmet": 3,
+      "No-vest": 3
+     },
+     "detections": [
+      {
+       "label": "Gloves",
+       "score": 0.399,
+       "matched": false
+      }
+     ]
+    },
+    "0.5": {
+     "found": 0,
+     "missed": 12,
+     "falseAlarms": 0,
+     "missedByClass": {
+      "No-gloves": 4,
+      "Gloves": 2,
+      "No-Helmet": 3,
+      "No-vest": 3
+     },
+     "detections": []
+    }
+   }
+  }
+ ]
+}
