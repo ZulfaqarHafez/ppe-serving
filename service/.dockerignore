@@ -1,0 +1,6 @@
+*
+!requirements.lock
+!registry/manifest.json
+!scripts/fetch_model.py
+!src/
+**/__pycache__

@@ -1,0 +1,44 @@
+# In-cluster smoke request: posts a sample image to the Service's cluster DNS
+# name from inside the cluster and prints the JSON answer (scripts/kind_up.sh).
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ppe-smoke
+  namespace: ppe
+spec:
+  restartPolicy: Never
+  automountServiceAccountToken: false
+  securityContext:
+    runAsNonRoot: true
+    runAsUser: 10001
+    seccompProfile: {type: RuntimeDefault}
+  containers:
+    - name: smoke
+      image: ppe-service:dev
+      imagePullPolicy: Never
+      command: ["python", "-c"]
+      args:
+        - |
+          import json, time, urllib.request
+          data = open("/sample/plant-cctv.webp", "rb").read()
+          b = "ppesmokeboundary"
+          body = (f"--{b}\r\nContent-Disposition: form-data; name=\"file\"; filename=\"plant-cctv.webp\"\r\n"
+                  f"Content-Type: image/webp\r\n\r\n").encode() + data + f"\r\n--{b}--\r\n".encode()
+          req = urllib.request.Request("http://ppe-service.ppe.svc.cluster.local/v1/detect", data=body,
+                                       headers={"Content-Type": f"multipart/form-data; boundary={b}"})
+          t0 = time.perf_counter()
+          with urllib.request.urlopen(req, timeout=30) as r:
+              out = json.load(r)
+              out["client"] = {"status": r.status, "round_trip_ms": round((time.perf_counter() - t0) * 1000, 1),
+                               "url": "http://ppe-service.ppe.svc.cluster.local/v1/detect"}
+          print(json.dumps(out, indent=1))
+      securityContext:
+        allowPrivilegeEscalation: false
+        readOnlyRootFilesystem: true
+        capabilities: {drop: ["ALL"]}
+      volumeMounts:
+        - {name: sample, mountPath: /sample}
+  volumes:
+    - name: sample
+      configMap:
+        name: ppe-smoke-sample

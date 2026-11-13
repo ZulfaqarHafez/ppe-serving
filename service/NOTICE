@@ -1,0 +1,37 @@
+ppe-serving service/ NOTICE
+
+Model
+  ppe_yolov8s_320_int8dyn.onnx is not stored in this repository. It is fetched
+  from https://zulfaqarhafez.com/models/ppe/ppe_yolov8s_320_int8dyn.onnx and
+  refused unless its SHA-256 is
+  d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2
+  (see registry/manifest.json).
+  It is a YOLOv8s PPE detector (classes Gloves, Helmet, No-Helmet, No-gloves,
+  No-vest, Vest) trained by teammates in a university course project, of which
+  Zulfaqar Hafez was a member, with Ultralytics YOLOv8, then exported to ONNX at
+  320 px with dynamic int8 quantisation. Training code and evaluation:
+  https://github.com/ZulfaqarHafez/aai3001_deep_learning
+  Ultralytics YOLOv8 is licensed under AGPL-3.0. Check the Ultralytics licence
+  terms before reusing the model or images built with it.
+
+Dataset and sample images
+  "Personal Protective Equipment" v5, Roboflow Universe, workspace maxis,
+  https://universe.roboflow.com/maxis/personal-protective-equipment-dtt2i-9qixs
+  Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+  tests/data/samples/*.webp are five images from its test split, exactly as
+  published on zulfaqarhafez.com (resized to a long side of 640 and WebP
+  compressed there). tests/data/samples.json is the site's record of what the
+  model finds in them. The load test posts one of these images, and
+  docs/grafana-dashboard.png shows metrics from requests that used them.
+
+Code
+  Pre- and post-processing in src/ppe_service/processing.py are ported from
+  src/components/demos/ppeDetect.ts of the zulfaqarhafez.com site, by the same
+  author. No licence file has been added to this repository yet, so no licence
+  is granted for the code.
+
+Third-party software
+  Python dependencies are listed with versions and hashes in uv.lock and
+  requirements.lock; each keeps its own licence. Container images used by
+  compose.yaml and the kind cluster (Python, Prometheus, Grafana, kindest/node,
+  metrics-server, k6) are pulled at run time and are not redistributed here.

@@ -1,0 +1,115 @@
+# kubectl apply -k k8s/overlays/kind   (2026-11-13T09:10:40Z)
+namespace/ppe created
+configmap/ppe-service created
+service/ppe-service created
+deployment.apps/ppe-service created
+poddisruptionbudget.policy/ppe-service created
+horizontalpodautoscaler.autoscaling/ppe-service created
+Waiting for deployment "ppe-service" rollout to finish: 0 of 1 updated replicas are available...
+deployment "ppe-service" successfully rolled out
+rollout finished in 5 s
+
+# rolling update (kubectl rollout restart), maxUnavailable 0 / maxSurge 1
+deployment.apps/ppe-service scaled
+Waiting for deployment "ppe-service" rollout to finish: 1 of 2 updated replicas are available...
+deployment "ppe-service" successfully rolled out
+deployment.apps/ppe-service restarted
+Waiting for deployment "ppe-service" rollout to finish: 0 out of 2 new replicas have been updated...
+Waiting for deployment "ppe-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "ppe-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "ppe-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "ppe-service" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "ppe-service" rollout to finish: 1 old replicas are pending termination...
+deployment "ppe-service" successfully rolled out
+rolling update finished in 6 s
+
+# rollback to the previous revision (kubectl rollout undo)
+deployment.apps/ppe-service rolled back
+Waiting for deployment "ppe-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "ppe-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "ppe-service" rollout to finish: 1 out of 2 new replicas have been updated...
+Waiting for deployment "ppe-service" rollout to finish: 1 old replicas are pending termination...
+Waiting for deployment "ppe-service" rollout to finish: 1 old replicas are pending termination...
+deployment "ppe-service" successfully rolled out
+rollback finished in 6 s
+deployment.apps/ppe-service 
+REVISION  CHANGE-CAUSE
+2         <none>
+3         <none>
+
+
+# state
+NAME                STATUS   ROLES           AGE   VERSION   INTERNAL-IP   EXTERNAL-IP   OS-IMAGE                         KERNEL-VERSION    CONTAINER-RUNTIME
+ppe-control-plane   Ready    control-plane   80s   v1.33.1   172.18.0.2    <none>        Debian GNU/Linux 12 (bookworm)   6.18.44-fc-v445   containerd://2.1.1
+NAME                          READY   UP-TO-DATE   AVAILABLE   AGE   CONTAINERS    IMAGES            SELECTOR
+deployment.apps/ppe-service   2/2     2            2           20s   ppe-service   ppe-service:dev   app.kubernetes.io/name=ppe-service
+
+NAME                                    DESIRED   CURRENT   READY   AGE   CONTAINERS    IMAGES            SELECTOR
+replicaset.apps/ppe-service-5cdc4d694   0         0         0       12s   ppe-service   ppe-service:dev   app.kubernetes.io/name=ppe-service,pod-template-hash=5cdc4d694
+replicaset.apps/ppe-service-f748fb674   2         2         2       20s   ppe-service   ppe-service:dev   app.kubernetes.io/name=ppe-service,pod-template-hash=f748fb674
+
+NAME                              READY   STATUS        RESTARTS   AGE   IP            NODE                NOMINATED NODE   READINESS GATES
+pod/ppe-service-5cdc4d694-6s6rn   1/1     Terminating   0          9s    10.244.0.9    ppe-control-plane   <none>           <none>
+pod/ppe-service-5cdc4d694-qrxkq   1/1     Terminating   0          12s   10.244.0.8    ppe-control-plane   <none>           <none>
+pod/ppe-service-f748fb674-2tcv6   1/1     Running       0          3s    10.244.0.11   ppe-control-plane   <none>           <none>
+pod/ppe-service-f748fb674-dsgx4   1/1     Running       0          6s    10.244.0.10   ppe-control-plane   <none>           <none>
+
+NAME                  TYPE       CLUSTER-IP     EXTERNAL-IP   PORT(S)        AGE   SELECTOR
+service/ppe-service   NodePort   10.96.141.37   <none>        80:30080/TCP   20s   app.kubernetes.io/name=ppe-service
+
+NAME                                              REFERENCE                TARGETS              MINPODS   MAXPODS   REPLICAS   AGE
+horizontalpodautoscaler.autoscaling/ppe-service   Deployment/ppe-service   cpu: <unknown>/60%   1         4         2          20s
+
+NAME                                     MIN AVAILABLE   MAX UNAVAILABLE   ALLOWED DISRUPTIONS   AGE
+poddisruptionbudget.policy/ppe-service   N/A             1                 1                     20s
+
+NAME                         DATA   AGE
+configmap/kube-root-ca.crt   1      20s
+configmap/ppe-service        7      20s
+
+# pod security and probes
+{"fsGroup":10001,"runAsGroup":10001,"runAsNonRoot":true,"runAsUser":10001,"seccompProfile":{"type":"RuntimeDefault"}}
+{"allowPrivilegeEscalation":false,"capabilities":{"drop":["ALL"]},"readOnlyRootFilesystem":true}
+{"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"500m","memory":"256Mi"}}
+
+# events
+15s         Normal    Scheduled                      pod/ppe-service-f748fb674-9lf6t       Successfully assigned ppe/ppe-service-f748fb674-9lf6t to ppe-control-plane
+15s         Normal    SuccessfulCreate               replicaset/ppe-service-f748fb674      Created pod: ppe-service-f748fb674-9lf6t
+12s         Normal    Pulled                         pod/ppe-service-5cdc4d694-qrxkq       Container image "ppe-service:dev" already present on machine
+12s         Normal    Scheduled                      pod/ppe-service-5cdc4d694-qrxkq       Successfully assigned ppe/ppe-service-5cdc4d694-qrxkq to ppe-control-plane
+12s         Normal    Created                        pod/ppe-service-5cdc4d694-qrxkq       Created container: ppe-service
+12s         Normal    ScalingReplicaSet              deployment/ppe-service                Scaled up replica set ppe-service-5cdc4d694 from 0 to 1
+12s         Normal    SuccessfulCreate               replicaset/ppe-service-5cdc4d694      Created pod: ppe-service-5cdc4d694-qrxkq
+11s         Normal    Started                        pod/ppe-service-5cdc4d694-qrxkq       Started container ppe-service
+9s          Normal    SuccessfulCreate               replicaset/ppe-service-5cdc4d694      Created pod: ppe-service-5cdc4d694-6s6rn
+9s          Normal    ScalingReplicaSet              deployment/ppe-service                Scaled down replica set ppe-service-f748fb674 from 2 to 1
+9s          Normal    SuccessfulDelete               replicaset/ppe-service-f748fb674      Deleted pod: ppe-service-f748fb674-9lf6t
+9s          Normal    Scheduled                      pod/ppe-service-5cdc4d694-6s6rn       Successfully assigned ppe/ppe-service-5cdc4d694-6s6rn to ppe-control-plane
+9s          Normal    Killing                        pod/ppe-service-f748fb674-9lf6t       Stopping container ppe-service
+9s          Normal    ScalingReplicaSet              deployment/ppe-service                Scaled up replica set ppe-service-5cdc4d694 from 1 to 2
+9s          Normal    Created                        pod/ppe-service-5cdc4d694-6s6rn       Created container: ppe-service
+9s          Normal    Pulled                         pod/ppe-service-5cdc4d694-6s6rn       Container image "ppe-service:dev" already present on machine
+8s          Normal    Started                        pod/ppe-service-5cdc4d694-6s6rn       Started container ppe-service
+6s          Normal    SuccessfulDelete               replicaset/ppe-service-f748fb674      Deleted pod: ppe-service-f748fb674-lkhzx
+6s          Normal    ScalingReplicaSet              deployment/ppe-service                Scaled up replica set ppe-service-f748fb674 from 0 to 1
+6s          Normal    Created                        pod/ppe-service-f748fb674-dsgx4       Created container: ppe-service
+6s          Normal    Pulled                         pod/ppe-service-f748fb674-dsgx4       Container image "ppe-service:dev" already present on machine
+6s          Normal    Scheduled                      pod/ppe-service-f748fb674-dsgx4       Successfully assigned ppe/ppe-service-f748fb674-dsgx4 to ppe-control-plane
+6s          Normal    Killing                        pod/ppe-service-f748fb674-lkhzx       Stopping container ppe-service
+6s          Normal    ScalingReplicaSet              deployment/ppe-service                Scaled down replica set ppe-service-f748fb674 from 1 to 0
+6s          Normal    SuccessfulCreate               replicaset/ppe-service-f748fb674      Created pod: ppe-service-f748fb674-dsgx4
+5s          Normal    Started                        pod/ppe-service-f748fb674-dsgx4       Started container ppe-service
+5s          Warning   FailedComputeMetricsReplicas   horizontalpodautoscaler/ppe-service   invalid metrics (1 invalid out of 1), first error is: failed to get cpu resource metric value: failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+5s          Warning   FailedGetResourceMetric        horizontalpodautoscaler/ppe-service   failed to get cpu utilization: unable to get metrics for resource cpu: no metrics returned from resource metrics API
+3s          Normal    Scheduled                      pod/ppe-service-f748fb674-2tcv6       Successfully assigned ppe/ppe-service-f748fb674-2tcv6 to ppe-control-plane
+3s          Normal    SuccessfulCreate               replicaset/ppe-service-f748fb674      Created pod: ppe-service-f748fb674-2tcv6
+3s          Normal    ScalingReplicaSet              deployment/ppe-service                Scaled down replica set ppe-service-5cdc4d694 from 2 to 1
+3s          Normal    ScalingReplicaSet              deployment/ppe-service                Scaled up replica set ppe-service-f748fb674 from 1 to 2
+3s          Normal    SuccessfulDelete               replicaset/ppe-service-5cdc4d694      Deleted pod: ppe-service-5cdc4d694-6s6rn
+3s          Normal    Pulled                         pod/ppe-service-f748fb674-2tcv6       Container image "ppe-service:dev" already present on machine
+3s          Normal    Killing                        pod/ppe-service-5cdc4d694-6s6rn       Stopping container ppe-service
+3s          Normal    Created                        pod/ppe-service-f748fb674-2tcv6       Created container: ppe-service
+2s          Normal    Started                        pod/ppe-service-f748fb674-2tcv6       Started container ppe-service
+0s          Normal    Killing                        pod/ppe-service-5cdc4d694-qrxkq       Stopping container ppe-service
+0s          Normal    SuccessfulDelete               replicaset/ppe-service-5cdc4d694      Deleted pod: ppe-service-5cdc4d694-qrxkq
+0s          Normal    ScalingReplicaSet              deployment/ppe-service                Scaled down replica set ppe-service-5cdc4d694 from 1 to 0

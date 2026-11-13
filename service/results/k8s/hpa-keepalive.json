@@ -1,0 +1,397 @@
+{
+ "mode": "keepalive",
+ "host_loadavg_before": [
+  "1.46",
+  "2.89",
+  "2.54"
+ ],
+ "vus": 8,
+ "duration_s": 150,
+ "k6_exit_code": 0,
+ "k6": {
+  "label": "kind HPA keepalive",
+  "vus": 8,
+  "duration": "2m30s",
+  "keepalive": true,
+  "image": "site-backs.webp",
+  "requests": 1832,
+  "throughput_rps": 12.163796783272577,
+  "error_rate": 0,
+  "checks_passed": 1832,
+  "checks_failed": 0,
+  "latency_ms": {
+   "avg": 656.1823366877734,
+   "min": 81.88407,
+   "p50": 650.4102310000001,
+   "p90": 719.9570781,
+   "p95": 742.57715095,
+   "p99": 805.0798314600002,
+   "max": 883.774072
+  },
+  "thresholds_ok": true
+ },
+ "max_replicas_seen": 4,
+ "requests_served_per_pod": {
+  "ppe-service-f748fb674-8hhrq": 0,
+  "ppe-service-f748fb674-c885k": 0,
+  "ppe-service-f748fb674-dsgx4": 1832,
+  "ppe-service-f748fb674-gt6fv": 0
+ },
+ "share_per_pod": {
+  "ppe-service-f748fb674-dsgx4": 1.0,
+  "ppe-service-f748fb674-8hhrq": 0.0,
+  "ppe-service-f748fb674-c885k": 0.0,
+  "ppe-service-f748fb674-gt6fv": 0.0
+ },
+ "busiest_pod_share": 1.0,
+ "samples": [
+  {
+   "t_s": 0,
+   "current_replicas": 1,
+   "desired_replicas": 1,
+   "cpu_utilization_percent": 0,
+   "pods": {
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1
+    }
+   }
+  },
+  {
+   "t_s": 10,
+   "current_replicas": 1,
+   "desired_replicas": 1,
+   "cpu_utilization_percent": 0,
+   "pods": {
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 126
+    }
+   }
+  },
+  {
+   "t_s": 20,
+   "current_replicas": 1,
+   "desired_replicas": 1,
+   "cpu_utilization_percent": 32,
+   "pods": {
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 249
+    }
+   }
+  },
+  {
+   "t_s": 31,
+   "current_replicas": 1,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 198,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": false,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": false,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 376
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": false,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 41,
+   "current_replicas": 1,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 198,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 503
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 51,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 198,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 633
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 62,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 100,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 756
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 72,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 100,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 879
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 83,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 50,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1000
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 93,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 50,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1126
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 103,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 50,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1251
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 114,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 50,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1375
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 124,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 49,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1505
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 134,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 50,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1634
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 145,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 50,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1760
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  },
+  {
+   "t_s": 151,
+   "current_replicas": 4,
+   "desired_replicas": 4,
+   "cpu_utilization_percent": 50,
+   "pods": {
+    "ppe-service-f748fb674-8hhrq": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-c885k": {
+     "ready": true,
+     "served": 0
+    },
+    "ppe-service-f748fb674-dsgx4": {
+     "ready": true,
+     "served": 1832
+    },
+    "ppe-service-f748fb674-gt6fv": {
+     "ready": true,
+     "served": 0
+    }
+   }
+  }
+ ]
+}

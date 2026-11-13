@@ -1,0 +1,28 @@
+{
+ "image": "ppe-service:dev",
+ "cpus": 2,
+ "clients": 16,
+ "load_seconds_before_sigterm": 8.0,
+ "docker_stop_seconds": 1.22,
+ "docker_stop_returncode": 0,
+ "container_exit_code": 0,
+ "requests": 444,
+ "outcomes": {
+  "drained": 16,
+  "ok_after": 3,
+  "ok_before_sigterm": 183,
+  "rejected_after_sigterm": 242,
+  "rejected_after_sigterm_error_ReadError": 59,
+  "rejected_after_sigterm_error_RemoteProtocolError": 132,
+  "rejected_after_sigterm_refused": 51
+ },
+ "server_shutdown_log": [
+  "Waiting for connections to close. (CTRL+C to force quit)",
+  "Waiting for application shutdown.",
+  "draining",
+  "stopped",
+  "Application shutdown complete.",
+  "Finished server process [1]"
+ ],
+ "passed": true
+}
