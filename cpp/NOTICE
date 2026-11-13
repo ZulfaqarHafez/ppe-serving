@@ -1,0 +1,31 @@
+ppe-serving / cpp
+Built by Zulfaqar Hafez with Claude Code as the coding agent.
+
+The model
+  ppe_yolov8s_320_int8dyn.onnx (not included; downloaded at build time and
+  checked against a pinned SHA-256) is a YOLOv8s detector trained by the
+  author's teammates in a university course project with Ultralytics YOLOv8.
+  Ultralytics YOLOv8 is licensed under AGPL-3.0
+  (https://github.com/ultralytics/ultralytics). The ONNX export and its
+  metadata name Ultralytics as the exporter and AGPL-3.0 as its licence.
+  The optional fp32 model made by scripts/export_fp32.py comes from the same
+  team's published checkpoint (Hugging Face iMaximusiV/yolo-ppe-detector)
+  and is not included either.
+
+The dataset and the sample images
+  data/samples/*.png are five images from the "Personal Protective
+  Equipment" dataset, version 5, Roboflow Universe workspace maxis
+  (https://universe.roboflow.com/maxis/personal-protective-equipment-dtt2i-9qixs),
+  licensed CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+  Changes: resized to a long side of 640 px and compressed to WebP for the
+  zulfaqarhafez.com demo, then converted losslessly to PNG here.
+  data/reference/samples.json records what the model found in them.
+
+Third-party code
+  stb_image v2.32 (third_party/stb), by Sean Barrett: MIT or public domain.
+  doctest v2.4.12 (third_party/doctest), by Viktor Kirilov: MIT, see
+  third_party/doctest/LICENSE.txt.
+  ONNX Runtime 1.29.0 (downloaded, not included), Microsoft: MIT.
+
+No licence has been chosen for the code in this directory yet, so none is
+granted.

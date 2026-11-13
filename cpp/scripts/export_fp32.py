@@ -95,14 +95,16 @@ def main() -> int:
     return 0
 
 
-def max_rel_diff(x, y):
-    """Largest |x - y| / max(|y|, tiny) over the elements, or None if shapes differ."""
+def diff(x, y):
+    """Largest absolute and relative element difference, or None if shapes differ."""
     import numpy as np
 
     if y is None or x.shape != y.shape:
         return None
     x64, y64 = x.astype(np.float64), y.astype(np.float64)
-    return float(np.max(np.abs(x64 - y64) / np.maximum(np.abs(y64), 1e-30)))
+    return {"max_abs": float(np.max(np.abs(x64 - y64))),
+            "max_rel": float(np.max(np.abs(x64 - y64) / np.maximum(np.abs(y64), 1e-30))),
+            "elements_different": int(np.count_nonzero(x64 != y64)), "dtype": str(x.dtype)}
 
 
 def compare_int8(fp32: pathlib.Path, int8: pathlib.Path, report: pathlib.Path) -> None:
@@ -137,7 +139,7 @@ def compare_int8(fp32: pathlib.Path, int8: pathlib.Path, report: pathlib.Path) -
         "served_int8": {"file": int8.name, "bytes": int8.stat().st_size, "sha256": sha256(int8),
                         "date_metadata_bytes": len(date)},
         "initializers": {"requantized": len(a), "served": len(b), "identical": len(same),
-                         "different": {k: max_rel_diff(a[k], b.get(k)) for k in sorted(a)
+                         "different": {k: diff(a[k], b.get(k)) for k in sorted(a)
                                        if k not in same}},
         "nodes": {"requantized": len(ours.graph.node), "served": len(served.graph.node)},
     }
