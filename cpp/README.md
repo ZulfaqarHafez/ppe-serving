@@ -50,7 +50,7 @@ All numbers below are rendered by `scripts/render_readme.py` from the JSON files
 | OS | Ubuntu 24.04.5 LTS, kernel 6.18.44-fc-v445 |
 | C++ | Ubuntu clang version 18.1.3 (1ubuntu1), Release (-O3 -DNDEBUG), ppe_detect 0.1.0 (onnxruntime 1.29.0) |
 | Python | Python 3.13.18, onnxruntime 1.29.0, numpy 2.5.3, Pillow 12.3.0 |
-| Run | 2026-11-13T08:53:37+00:00 to 2026-11-13T09:16:15+00:00 (UTC); the 1-minute load average fell under 0.5 after 13 min of waiting |
+| Run | 2026-11-13T09:43:54+00:00 to 2026-11-13T09:51:42+00:00 (UTC); the 1-minute load average fell under 0.5 after 0 min of waiting |
 <!-- END GENERATED: machine -->
 
 ### Latency: C++ against Python, int8 model
@@ -58,49 +58,49 @@ All numbers below are rendered by `scripts/render_readme.py` from the JSON files
 Same model file, same five images, same ONNX Runtime version (the C++ prebuilt library and the Python wheel are both 1.29.0), same session options. Python's preprocessing is Pillow plus numpy, as in the script behind `samples.json`; its postprocessing is numpy plus a Python NMS loop, as in that script.
 
 <!-- BEGIN GENERATED: latency-int8 -->
-**int8, 1 thread.** 800 timed iterations per language (8 alternating rounds of 100, after 20 untimed warm-up iterations in each process), cycling through the five samples. Background load (1-minute load average, sampled before and after every process) ranged from 0.38 to 3.98 on 4 CPUs. Another workload was running on the machine during part of this table; with one inference thread the effect is smaller, but the tails (p95, p99) are less reliable than the medians.
+**int8, 1 thread.** 800 timed iterations per language (8 alternating rounds of 100, after 20 untimed warm-up iterations in each process), cycling through the five samples. System load (1-minute load average, sampled before and after every process) ranged from 0.31 to 0.86 on 4 CPUs. The load average lags by about a minute and counts this benchmark's own processes, so it rises during the run even on an otherwise idle machine.
 
 | Stage (ms) | C++ mean | C++ p50 | C++ p95 | C++ p99 | Python mean | Python p50 | Python p95 | Python p99 | Python / C++ (p50) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Image decode | 6.64 | 6.14 | 11.5 | 13.2 | 10.2 | 9.41 | 15.9 | 18.7 | 1.53x |
-| Preprocess (letterbox) | 2.78 | 2.52 | 4.78 | 5.67 | 2.84 | 2.63 | 4.34 | 5.01 | 1.04x |
-| Inference (model call) | 75.2 | 70.5 | 98.5 | 110.2 | 76.3 | 70.9 | 103.3 | 113.4 | 1.00x |
-| Postprocess (decode, NMS) | 0.025 | 0.028 | 0.042 | 0.057 | 0.328 | 0.314 | 0.448 | 0.539 | 11.39x |
-| **End to end** | 84.7 | 79.9 | 112.5 | 124.8 | 89.7 | 84.7 | 118.9 | 131.1 | 1.06x |
+| Image decode | 6.45 | 6.23 | 9.93 | 13.1 | 9.81 | 9.32 | 14.6 | 17.9 | 1.50x |
+| Preprocess (letterbox) | 2.65 | 2.51 | 3.90 | 5.45 | 2.69 | 2.56 | 3.79 | 4.77 | 1.02x |
+| Inference (model call) | 72.5 | 72.2 | 88.9 | 98.3 | 71.8 | 72.2 | 87.0 | 102.1 | 1.00x |
+| Postprocess (decode, NMS) | 0.026 | 0.028 | 0.043 | 0.065 | 0.324 | 0.312 | 0.440 | 0.550 | 11.28x |
+| **End to end** | 81.6 | 81.0 | 99.6 | 112.0 | 84.6 | 83.7 | 101.8 | 118.3 | 1.03x |
 
-**int8, runtime default threads.** 800 timed iterations per language (8 alternating rounds of 100, after 20 untimed warm-up iterations in each process), cycling through the five samples. Background load (1-minute load average, sampled before and after every process) ranged from 3.93 to 6.16 on 4 CPUs. Another workload was running on the machine during part of this table, so these multi-thread numbers are noisy: they compete with it for cores.
+**int8, runtime default threads.** 800 timed iterations per language (8 alternating rounds of 100, after 20 untimed warm-up iterations in each process), cycling through the five samples. System load (1-minute load average, sampled before and after every process) ranged from 0.85 to 3.20 on 4 CPUs. The load average lags by about a minute and counts this benchmark's own processes, so it rises during the run even on an otherwise idle machine.
 
 | Stage (ms) | C++ mean | C++ p50 | C++ p95 | C++ p99 | Python mean | Python p50 | Python p95 | Python p99 | Python / C++ (p50) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Image decode | 7.61 | 6.32 | 13.4 | 25.9 | 11.9 | 9.91 | 22.1 | 34.2 | 1.57x |
-| Preprocess (letterbox) | 3.11 | 2.60 | 6.00 | 9.49 | 3.33 | 2.80 | 5.76 | 12.2 | 1.08x |
-| Inference (model call) | 52.7 | 40.8 | 121.4 | 167.6 | 54.4 | 41.9 | 117.4 | 177.5 | 1.03x |
-| Postprocess (decode, NMS) | 0.037 | 0.027 | 0.042 | 0.067 | 0.390 | 0.307 | 0.482 | 1.46 | 11.52x |
-| **End to end** | 63.5 | 50.9 | 140.7 | 195.2 | 70.0 | 56.3 | 138.2 | 222.6 | 1.11x |
+| Image decode | 5.82 | 5.50 | 9.04 | 10.5 | 9.08 | 8.55 | 13.5 | 16.9 | 1.55x |
+| Preprocess (letterbox) | 2.37 | 2.27 | 3.34 | 4.19 | 2.39 | 2.26 | 3.35 | 4.36 | 0.99x |
+| Inference (model call) | 30.3 | 29.4 | 37.5 | 44.6 | 30.7 | 29.6 | 38.9 | 46.0 | 1.01x |
+| Postprocess (decode, NMS) | 0.020 | 0.023 | 0.032 | 0.044 | 0.261 | 0.252 | 0.339 | 0.432 | 10.78x |
+| **End to end** | 38.5 | 37.6 | 48.0 | 56.1 | 42.5 | 41.1 | 53.7 | 63.3 | 1.09x |
 <!-- END GENERATED: latency-int8 -->
 
 ### Latency: fp32 model (optional, local only)
 
 <!-- BEGIN GENERATED: latency-fp32 -->
-**fp32, 1 thread.** 800 timed iterations per language (8 alternating rounds of 100, after 20 untimed warm-up iterations in each process), cycling through the five samples. Background load (1-minute load average, sampled before and after every process) ranged from 2.50 to 4.43 on 4 CPUs. Another workload was running on the machine during part of this table; with one inference thread the effect is smaller, but the tails (p95, p99) are less reliable than the medians.
+**fp32, 1 thread.** 800 timed iterations per language (8 alternating rounds of 100, after 20 untimed warm-up iterations in each process), cycling through the five samples. System load (1-minute load average, sampled before and after every process) ranged from 1.32 to 3.20 on 4 CPUs. The load average lags by about a minute and counts this benchmark's own processes, so it rises during the run even on an otherwise idle machine.
 
 | Stage (ms) | C++ mean | C++ p50 | C++ p95 | C++ p99 | Python mean | Python p50 | Python p95 | Python p99 | Python / C++ (p50) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Image decode | 6.61 | 6.14 | 11.4 | 13.1 | 10.2 | 9.35 | 16.8 | 18.4 | 1.52x |
-| Preprocess (letterbox) | 2.78 | 2.53 | 4.80 | 5.44 | 2.87 | 2.64 | 4.46 | 4.97 | 1.05x |
-| Inference (model call) | 56.5 | 53.2 | 71.7 | 81.8 | 57.5 | 53.7 | 73.8 | 88.2 | 1.01x |
-| Postprocess (decode, NMS) | 0.019 | 0.019 | 0.030 | 0.042 | 0.320 | 0.304 | 0.447 | 0.494 | 15.90x |
-| **End to end** | 66.0 | 62.8 | 85.3 | 95.3 | 70.8 | 67.1 | 91.1 | 103.5 | 1.07x |
+| Image decode | 5.94 | 5.70 | 9.07 | 10.9 | 9.30 | 8.72 | 13.7 | 18.0 | 1.53x |
+| Preprocess (letterbox) | 2.42 | 2.30 | 3.52 | 4.64 | 2.50 | 2.35 | 3.44 | 4.49 | 1.02x |
+| Inference (model call) | 50.8 | 49.8 | 61.5 | 69.9 | 51.7 | 50.7 | 61.8 | 68.9 | 1.02x |
+| Postprocess (decode, NMS) | 0.017 | 0.018 | 0.026 | 0.036 | 0.284 | 0.277 | 0.383 | 0.463 | 15.21x |
+| **End to end** | 59.2 | 57.9 | 71.0 | 80.6 | 63.8 | 62.5 | 76.8 | 86.3 | 1.08x |
 
-**fp32, runtime default threads.** 800 timed iterations per language (8 alternating rounds of 100, after 20 untimed warm-up iterations in each process), cycling through the five samples. Background load (1-minute load average, sampled before and after every process) ranged from 2.50 to 3.94 on 4 CPUs. Another workload was running on the machine during part of this table, so these multi-thread numbers are noisy: they compete with it for cores.
+**fp32, runtime default threads.** 800 timed iterations per language (8 alternating rounds of 100, after 20 untimed warm-up iterations in each process), cycling through the five samples. System load (1-minute load average, sampled before and after every process) ranged from 1.32 to 2.90 on 4 CPUs. The load average lags by about a minute and counts this benchmark's own processes, so it rises during the run even on an otherwise idle machine.
 
 | Stage (ms) | C++ mean | C++ p50 | C++ p95 | C++ p99 | Python mean | Python p50 | Python p95 | Python p99 | Python / C++ (p50) |
 |---|---:|---:|---:|---:|---:|---:|---:|---:|---:|
-| Image decode | 7.50 | 6.30 | 14.4 | 21.8 | 12.6 | 11.0 | 25.0 | 32.1 | 1.75x |
-| Preprocess (letterbox) | 3.26 | 2.64 | 6.96 | 10.6 | 3.56 | 3.03 | 7.53 | 10.1 | 1.15x |
-| Inference (model call) | 29.4 | 22.4 | 73.3 | 115.6 | 33.3 | 23.0 | 86.9 | 121.7 | 1.03x |
-| Postprocess (decode, NMS) | 0.020 | 0.019 | 0.030 | 0.048 | 0.377 | 0.281 | 0.452 | 4.28 | 14.62x |
-| **End to end** | 40.2 | 32.9 | 93.5 | 132.4 | 49.8 | 38.1 | 115.7 | 150.9 | 1.16x |
+| Image decode | 6.52 | 6.02 | 11.1 | 13.1 | 9.29 | 8.87 | 13.7 | 16.9 | 1.47x |
+| Preprocess (letterbox) | 2.71 | 2.50 | 4.23 | 5.26 | 2.42 | 2.27 | 3.46 | 4.60 | 0.91x |
+| Inference (model call) | 18.9 | 18.3 | 24.3 | 31.7 | 18.3 | 17.2 | 23.5 | 27.2 | 0.94x |
+| Postprocess (decode, NMS) | 0.018 | 0.018 | 0.028 | 0.034 | 0.231 | 0.224 | 0.331 | 0.400 | 12.37x |
+| **End to end** | 28.2 | 27.2 | 37.9 | 43.7 | 30.2 | 29.2 | 38.8 | 45.5 | 1.08x |
 <!-- END GENERATED: latency-fp32 -->
 
 ### Cold start and memory
@@ -108,8 +108,8 @@ Same model file, same five images, same ONNX Runtime version (the C++ prebuilt l
 <!-- BEGIN GENERATED: cold-start -->
 | Threads | C++ p50 (p95) ms | Python p50 (p95) ms | Python / C++ (p50) | C++ peak RSS MiB | Python peak RSS MiB | Runs each | Background load |
 |---|---:|---:|---:|---:|---:|---:|---|
-| 1 thread | 186 (233) | 405 (457) | 2.17x | 58.8 | 91.8 | 20 | 3.30 to 3.75 |
-| runtime default threads | 269 (375) | 500 (578) | 1.86x | 59.3 | 92.1 | 20 | 3.30 to 3.45 |
+| 1 thread | 156 (194) | 271 (322) | 1.74x | 57.9 | 91.7 | 20 | 2.60 to 2.90 |
+| runtime default threads | 133 (157) | 259 (278) | 1.94x | 58.2 | 91.9 | 20 | 2.60 to 2.82 |
 
 Cold start is the time from fork to the first byte of JSON on stdout for one image (`site-backs.png`), so it includes process start, library loading, model load and one detection. Peak RSS is the largest `ru_maxrss` over the runs. Both are read by `bench/launch.py`, whose own resident size (11.7 MiB) is a floor under the RSS figures.
 <!-- END GENERATED: cold-start -->
@@ -124,7 +124,7 @@ The hypothesis going in was that the model call costs the same in both languages
 - **Postprocessing is many times faster in C++, but small in both.** It is under a millisecond in Python, so it barely moves the end-to-end time.
 - **End to end, C++ is modestly faster per image**, because the model call dominates. The clearer wins are outside the loop: **cold start** (process start to first result) is roughly half in C++, and **peak memory** is lower, since the C++ process does not load the Python interpreter, numpy and Pillow.
 - **int8 against fp32 on this CPU:** the int8 model call is slower than fp32 at 1 thread (compare the inference rows of the two 1-thread tables), even though the file is about four times smaller. Dynamic quantization here buys download size, not speed, on this CPU.
-- **Noise.** The machine was quiet when the run started, but another builder's workload returned partway through (the load is recorded next to each table). The 1-thread medians are the most trustworthy figures here; the default-thread rows and all p95 and p99 values are noisy.
+- **Noise.** This run started on an idle machine (1-minute load average 0.31) with no other workload during it. The load figure next to each table rises through the run because it includes the benchmark's own processes. Medians are steadier than the p95 and p99 tails on a shared virtual machine.
 
 ### Parity with Python
 
@@ -154,8 +154,8 @@ The course project's evaluation notes say where the weights live and how the 320
 <!-- BEGIN GENERATED: quantization -->
 - Size: fp32 44.63 MB, int8 11.37 MB (3.93x smaller).
 - Provenance check: re-quantizing the reproduced fp32 export with onnxruntime 1.29.0 (`quantize_dynamic, QuantType.QUInt8`) gives 11,366,723 bytes against the served file's 11,366,765 (which also carries a 32-character export `date` that the reproduced export drops); 318 of 332 initializers are identical. Of the rest, 13 float32 weight scales differ by at most 1.1e-07 relative (float32 machine epsilon is 1.19e-07); 1 quantized weight tensor(s) differ in 2 element(s) by at most 1 quantization step(s).
-- C++ model call p50, 1 thread: int8 70.5 ms, fp32 53.2 ms (int8 / fp32 = 1.33).
-- C++ model call p50, runtime default threads: int8 40.8 ms, fp32 22.4 ms (int8 / fp32 = 1.82).
+- C++ model call p50, 1 thread: int8 72.2 ms, fp32 49.8 ms (int8 / fp32 = 1.45).
+- C++ model call p50, runtime default threads: int8 29.4 ms, fp32 18.3 ms (int8 / fp32 = 1.60).
 
 | Sample | int8 at 0.25 | fp32 at 0.25 |
 |---|---|---|
