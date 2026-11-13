@@ -1,0 +1,450 @@
+{
+ "machine": {
+  "recorded_utc": "2026-11-13T08:57:30Z",
+  "cpu_model": "Intel(R) Xeon(R) Processor @ 2.10GHz",
+  "logical_cpus": 4,
+  "ram_gib": 15.7,
+  "kernel": "6.18.44-fc-v445",
+  "arch": "x86_64",
+  "gpu": "none",
+  "docker": "29.9.2",
+  "k6": "k6 v1.0.0 (commit/41b4984b75, go1.24.2, linux/amd64)",
+  "note": "virtual machine; the load generator runs on the same host as the service"
+ },
+ "configs": {
+  "cpu1-w1t1": {
+   "runs": [
+    {
+     "label": "cpu1-w1t1 cpus=1 workers=1 intra_op_threads=1 loadavg_before=0.99 1.59 1.78",
+     "vus": 1,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 150,
+     "throughput_rps": 9.978079410785663,
+     "error_rate": 0,
+     "checks_passed": 150,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 99.93373830666667,
+      "min": 75.503089,
+      "p50": 97.80016850000001,
+      "p90": 120.39270789999999,
+      "p95": 124.68550884999999,
+      "p99": 192.3616705399999,
+      "max": 198.457841
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu1-w1t1 cpus=1 workers=1 intra_op_threads=1 loadavg_before=0.99 1.56 1.77",
+     "vus": 2,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 166,
+     "throughput_rps": 10.903768234269066,
+     "error_rate": 0,
+     "checks_passed": 166,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 181.9988062590361,
+      "min": 119.142464,
+      "p50": 168.84921050000003,
+      "p90": 228.5730645,
+      "p95": 242.24545575,
+      "p99": 338.08965639999985,
+      "max": 379.835927
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu1-w1t1 cpus=1 workers=1 intra_op_threads=1 loadavg_before=0.91 1.50 1.74",
+     "vus": 4,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 178,
+     "throughput_rps": 11.633320221002014,
+     "error_rate": 0,
+     "checks_passed": 178,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 340.6692023370788,
+      "min": 80.154174,
+      "p50": 332.0901665,
+      "p90": 387.0488345,
+      "p95": 396.86894195,
+      "p99": 536.6369851799992,
+      "max": 615.441903
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu1-w1t1 cpus=1 workers=1 intra_op_threads=1 loadavg_before=0.93 1.48 1.73",
+     "vus": 8,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 177,
+     "throughput_rps": 11.305603814464023,
+     "error_rate": 0,
+     "checks_passed": 177,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 695.1143722033895,
+      "min": 106.860086,
+      "p50": 675.044193,
+      "p90": 805.7852508,
+      "p95": 837.7779778,
+      "p99": 1034.32991112,
+      "max": 1056.49795
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu1-w1t1 cpus=1 workers=1 intra_op_threads=1 loadavg_before=0.95 1.45 1.72",
+     "vus": 16,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 189,
+     "throughput_rps": 11.446277319369463,
+     "error_rate": 0,
+     "checks_passed": 189,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 1334.8496781746032,
+      "min": 87.520851,
+      "p50": 1337.737189,
+      "p90": 1622.6466862000002,
+      "p95": 1635.7833026,
+      "p99": 1664.11684304,
+      "max": 1683.700722
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu1-w1t1 cpus=1 workers=1 intra_op_threads=1 loadavg_before=0.96 1.43 1.71",
+     "vus": 32,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 191,
+     "throughput_rps": 10.762744075339983,
+     "error_rate": 0,
+     "checks_passed": 191,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 2750.898697403142,
+      "min": 113.201663,
+      "p50": 2906.848185,
+      "p90": 3273.008472,
+      "p95": 3336.2560705,
+      "p99": 3399.342071,
+      "max": 3405.431083
+     },
+     "thresholds_ok": true
+    }
+   ],
+   "saturation": {
+    "max_throughput_rps": 11.63,
+    "at_vus": 4,
+    "saturation_vus": 1,
+    "saturation_throughput_rps": 9.98,
+    "saturation_p95_ms": 124.7
+   }
+  },
+  "cpu2-w1t2": {
+   "runs": [
+    {
+     "label": "cpu2-w1t2 cpus=2 workers=1 intra_op_threads=2 loadavg_before=1.12 1.72 1.83",
+     "vus": 1,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 245,
+     "throughput_rps": 16.31987728878303,
+     "error_rate": 0,
+     "checks_passed": 245,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 61.0090019673469,
+      "min": 48.71925,
+      "p50": 57.294219,
+      "p90": 73.7488238,
+      "p95": 80.23846919999998,
+      "p99": 98.28845968000002,
+      "max": 146.287932
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w1t2 cpus=2 workers=1 intra_op_threads=2 loadavg_before=1.17 1.70 1.83",
+     "vus": 2,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 267,
+     "throughput_rps": 17.703384321787404,
+     "error_rate": 0,
+     "checks_passed": 267,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 112.44386499250933,
+      "min": 72.063551,
+      "p50": 108.567647,
+      "p90": 129.8590156,
+      "p95": 140.8754343,
+      "p99": 172.0438428199999,
+      "max": 178.888199
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w1t2 cpus=2 workers=1 intra_op_threads=2 loadavg_before=1.35 1.71 1.83",
+     "vus": 4,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 262,
+     "throughput_rps": 17.166213090282813,
+     "error_rate": 0,
+     "checks_passed": 262,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 231.03330197328248,
+      "min": 70.841353,
+      "p50": 222.1008325,
+      "p90": 270.6074441,
+      "p95": 279.5636209,
+      "p99": 380.04361178,
+      "max": 418.832723
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w1t2 cpus=2 workers=1 intra_op_threads=2 loadavg_before=1.82 1.80 1.85",
+     "vus": 8,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 256,
+     "throughput_rps": 16.51152546556087,
+     "error_rate": 0,
+     "checks_passed": 256,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 476.8960427265624,
+      "min": 66.639615,
+      "p50": 471.443628,
+      "p90": 554.1224735,
+      "p95": 598.056511,
+      "p99": 692.0630295999999,
+      "max": 717.101562
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w1t2 cpus=2 workers=1 intra_op_threads=2 loadavg_before=1.86 1.81 1.86",
+     "vus": 16,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 258,
+     "throughput_rps": 16.12263798818981,
+     "error_rate": 0,
+     "checks_passed": 258,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 959.8143988565898,
+      "min": 97.824751,
+      "p50": 958.722542,
+      "p90": 1143.5922005,
+      "p95": 1162.6262066999998,
+      "p99": 1200.11744273,
+      "max": 1203.460922
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w1t2 cpus=2 workers=1 intra_op_threads=2 loadavg_before=1.89 1.82 1.86",
+     "vus": 32,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 262,
+     "throughput_rps": 15.34774652862941,
+     "error_rate": 0,
+     "checks_passed": 262,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 1961.9318280229006,
+      "min": 65.287531,
+      "p50": 2063.374378,
+      "p90": 2269.3790461,
+      "p95": 2287.89034315,
+      "p99": 2311.48446285,
+      "max": 2319.231055
+     },
+     "thresholds_ok": true
+    }
+   ],
+   "saturation": {
+    "max_throughput_rps": 17.7,
+    "at_vus": 2,
+    "saturation_vus": 1,
+    "saturation_throughput_rps": 16.32,
+    "saturation_p95_ms": 80.2
+   }
+  },
+  "cpu2-w2t1": {
+   "runs": [
+    {
+     "label": "cpu2-w2t1 cpus=2 workers=2 intra_op_threads=1 loadavg_before=0.82 1.94 1.90",
+     "vus": 1,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 177,
+     "throughput_rps": 11.781865597535079,
+     "error_rate": 0,
+     "checks_passed": 177,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 84.61826081355933,
+      "min": 70.655741,
+      "p50": 80.98476,
+      "p90": 101.7017476,
+      "p95": 104.78993039999999,
+      "p99": 113.31908312000007,
+      "max": 120.10915
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w2t1 cpus=2 workers=2 intra_op_threads=1 loadavg_before=0.86 1.89 1.89",
+     "vus": 2,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 325,
+     "throughput_rps": 21.599613173125825,
+     "error_rate": 0,
+     "checks_passed": 325,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 92.18951178461538,
+      "min": 71.209632,
+      "p50": 87.110413,
+      "p90": 113.25141620000001,
+      "p95": 121.5245,
+      "p99": 143.8539373999999,
+      "max": 183.358505
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w2t1 cpus=2 workers=2 intra_op_threads=1 loadavg_before=1.11 1.90 1.89",
+     "vus": 4,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 364,
+     "throughput_rps": 24.016232353982392,
+     "error_rate": 0,
+     "checks_passed": 364,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 165.4417059972527,
+      "min": 78.124498,
+      "p50": 157.523133,
+      "p90": 199.002119,
+      "p95": 206.56930149999997,
+      "p99": 219.76730424,
+      "max": 238.64969
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w2t1 cpus=2 workers=2 intra_op_threads=1 loadavg_before=1.31 1.89 1.89",
+     "vus": 8,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 372,
+     "throughput_rps": 24.304740431149146,
+     "error_rate": 0,
+     "checks_passed": 372,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 326.13095415322573,
+      "min": 80.029794,
+      "p50": 317.01480000000004,
+      "p90": 380.1502324,
+      "p95": 411.6676045,
+      "p99": 500.02325483000004,
+      "max": 520.939258
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w2t1 cpus=2 workers=2 intra_op_threads=1 loadavg_before=1.55 1.91 1.90",
+     "vus": 16,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 399,
+     "throughput_rps": 25.543908879727784,
+     "error_rate": 0,
+     "checks_passed": 399,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 614.3560616491228,
+      "min": 80.830462,
+      "p50": 616.71075,
+      "p90": 663.6406884,
+      "p95": 692.7110197,
+      "p99": 774.19750978,
+      "max": 816.187319
+     },
+     "thresholds_ok": true
+    },
+    {
+     "label": "cpu2-w2t1 cpus=2 workers=2 intra_op_threads=1 loadavg_before=1.65 1.92 1.90",
+     "vus": 32,
+     "duration": "15s",
+     "keepalive": true,
+     "image": "site-backs.webp",
+     "requests": 406,
+     "throughput_rps": 24.84404283976579,
+     "error_rate": 0,
+     "checks_passed": 406,
+     "checks_failed": 0,
+     "latency_ms": {
+      "avg": 1235.156347645319,
+      "min": 97.039951,
+      "p50": 1263.2605065,
+      "p90": 1392.466293,
+      "p95": 1422.1480705,
+      "p99": 1498.8209740999998,
+      "max": 1518.406338
+     },
+     "thresholds_ok": true
+    }
+   ],
+   "saturation": {
+    "max_throughput_rps": 25.54,
+    "at_vus": 16,
+    "saturation_vus": 4,
+    "saturation_throughput_rps": 24.02,
+    "saturation_p95_ms": 206.6
+   }
+  }
+ },
+ "worker_comparison": {
+  "cpu2_w2t1_max_rps": 25.54,
+  "cpu2_w1t2_max_rps": 17.7,
+  "w2t1_vs_w1t2_percent": 44.3
+ }
+}

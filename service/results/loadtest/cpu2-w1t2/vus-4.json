@@ -1,0 +1,22 @@
+{
+ "label": "cpu2-w1t2 cpus=2 workers=1 intra_op_threads=2 loadavg_before=1.35 1.71 1.83",
+ "vus": 4,
+ "duration": "15s",
+ "keepalive": true,
+ "image": "site-backs.webp",
+ "requests": 262,
+ "throughput_rps": 17.166213090282813,
+ "error_rate": 0,
+ "checks_passed": 262,
+ "checks_failed": 0,
+ "latency_ms": {
+  "avg": 231.03330197328248,
+  "min": 70.841353,
+  "p50": 222.1008325,
+  "p90": 270.6074441,
+  "p95": 279.5636209,
+  "p99": 380.04361178,
+  "max": 418.832723
+ },
+ "thresholds_ok": true
+}
