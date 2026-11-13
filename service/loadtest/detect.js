@@ -3,7 +3,7 @@
 //
 // Environment:
 //   BASE_URL     service URL (default http://127.0.0.1:8000)
-//   IMAGE        image file, relative to this script (default ../tests/data/samples/site-backs.webp)
+//   SAMPLE_IMAGE image file, relative to this script (default ../tests/data/samples/site-backs.webp)
 //   VUS          concurrent virtual users (default 4)
 //   DURATION     run length (default 20s)
 //   KEEPALIVE    "1" (default) reuses connections; "0" opens a new connection per request
@@ -14,7 +14,7 @@
 import http from 'k6/http';
 import { check } from 'k6';
 
-const IMAGE = __ENV.IMAGE || '../tests/data/samples/site-backs.webp';
+const IMAGE = __ENV.SAMPLE_IMAGE || '../tests/data/samples/site-backs.webp';
 const img = open(IMAGE, 'b');
 const BASE = __ENV.BASE_URL || 'http://127.0.0.1:8000';
 const KEEPALIVE = (__ENV.KEEPALIVE || '1') !== '0';
