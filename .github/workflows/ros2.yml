@@ -1,0 +1,33 @@
+name: ros2
+
+on:
+  push:
+    branches: [main]
+    paths: ["ros2/**", ".github/workflows/ros2.yml"]
+  pull_request:
+    paths: ["ros2/**", ".github/workflows/ros2.yml"]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ros2-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    defaults:
+      run:
+        working-directory: ros2
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Build the ros:jazzy image (builds the workspace)
+        run: docker build -t ppe-ros2 .
+      - name: colcon test in the container
+        run: docker run --rm ppe-ros2 test
+      - name: Replay demo smoke run
+        run: docker run --rm -e DEMO_SECONDS=20 ppe-ros2 demo | tee demo.log && grep -q "goal succeeded" demo.log

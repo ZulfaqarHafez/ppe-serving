@@ -1,0 +1,28 @@
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-11-12-06-59-58-335042-vm-18444
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [sample_image_publisher-1]: process started with pid [18460]
+[INFO] [ppe_detector_node-2]: process started with pid [18461]
+[INFO] [ppe_patrol_node-3]: process started with pid [18462]
+[INFO] [fake_navigate_to_pose_server-4]: process started with pid [18463]
+[fake_navigate_to_pose_server-4] [WARN] [1794466798.499274212] [fake_navigate_to_pose_server]: fake NavigateToPose server (stand-in for Nav2) is up
+[ppe_patrol_node-3] [INFO] [1794466798.501343427] [ppe_patrol]: watching /detections for No-Helmet; goal (1.00, 0.00) in map via navigate_to_pose
+[sample_image_publisher-1] [INFO] [1794466798.602580464] [sample_image_publisher]: replaying 1 images at 5.0 Hz on /camera/image_raw
+[ppe_detector_node-2] [INFO] [1794466798.845193241] [ppe_detector]: loaded <workspace>/install/ppe_detector/share/ppe_detector/models/ppe_yolov8s_320_int8dyn.onnx (input 320, intra-op threads default)
+[ppe_detector_node-2] [INFO] [1794466798.854606995] [ppe_detector]: active, listening on /camera/image_raw
+[ppe_patrol_node-3] [INFO] [1794466801.053870630] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794466801.054837318] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794466801.055610946] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794466801.155838896] [ppe_patrol]: feedback: 0.90 m remaining
+[ppe_patrol_node-3] [INFO] [1794466802.155875278] [ppe_patrol]: feedback: 0.40 m remaining
+[fake_navigate_to_pose_server-4] [INFO] [1794466802.955689723] [fake_navigate_to_pose_server]: goal reached (fake) after 1.9 s
+[ppe_patrol_node-3] [INFO] [1794466802.955953899] [ppe_patrol]: goal succeeded
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[INFO] [fake_navigate_to_pose_server-4]: sending signal 'SIGINT' to process[fake_navigate_to_pose_server-4]
+[INFO] [sample_image_publisher-1]: process has finished cleanly [pid 18460]
+[INFO] [fake_navigate_to_pose_server-4]: process has finished cleanly [pid 18463]
+[INFO] [ppe_patrol_node-3]: process has finished cleanly [pid 18462]
+[INFO] [ppe_detector_node-2]: process has finished cleanly [pid 18461]
+[ppe_patrol_node-3] [INFO] [1794466813.100193293] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[ppe_detector_node-2] [INFO] [1794466813.100285912] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[fake_navigate_to_pose_server-4] [INFO] [1794466813.100979841] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[sample_image_publisher-1] [INFO] [1794466813.101510561] [rclcpp]: signal_handler(SIGINT/SIGTERM)

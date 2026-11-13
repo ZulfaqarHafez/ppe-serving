@@ -1,0 +1,36 @@
+ppe-ros2 NOTICE
+
+Model
+  ppe_yolov8s_320_int8dyn.onnx (not stored in this repository; fetched at build
+  time from https://zulfaqarhafez.com/models/ppe/ppe_yolov8s_320_int8dyn.onnx,
+  SHA-256 d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2).
+  A YOLOv8s PPE detector (classes Gloves, Helmet, No-Helmet, No-gloves,
+  No-vest, Vest) trained by a university course project team, of which
+  Zulfaqar Hafez was a member, with Ultralytics YOLOv8, then exported to ONNX
+  at 320 px with dynamic int8 quantisation for the in-browser demo on
+  zulfaqarhafez.com. Training code and evaluation:
+  github.com/ZulfaqarHafez/AAI3001_Deep_Learning.
+  Ultralytics YOLOv8 is licensed under AGPL-3.0. Check the Ultralytics licence
+  terms before reusing the model.
+
+Dataset and sample images
+  "Personal Protective Equipment" v5, Roboflow Universe, workspace maxis,
+  https://universe.roboflow.com/maxis/personal-protective-equipment-dtt2i-9qixs
+  Licence: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/).
+  src/ppe_bringup/samples/*.png are five images from its test split, as
+  published on zulfaqarhafez.com (resized to a long side of 640 and WebP
+  compressed there), converted to PNG here without other changes.
+  src/ppe_bringup/samples/samples.json is the site's record of what the model
+  finds in them. The annotated frames under docs/evidence/ are derived from
+  these images.
+
+Simulation assets
+  The Gazebo demo loads the TurtleBot3 sandbox world, robot model, map and
+  Nav2 parameters from the ROS packages nav2_minimal_tb3_sim and nav2_bringup
+  (Apache-2.0) at launch time and modifies them in memory; none of their files
+  are copied into this repository.
+
+Code
+  Pre- and post-processing are ported from src/components/demos/ppeDetect.ts
+  and scripts/ppe-samples.py of the zulfaqarhafez.com site, by the same
+  author. No licence file has been added to this repository yet.

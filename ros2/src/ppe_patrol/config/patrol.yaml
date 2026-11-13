@@ -1,0 +1,16 @@
+ppe_patrol:
+  ros__parameters:
+    detections_topic: detections
+    # Class names come from the model (ppeDetect.ts PPE_CLASSES):
+    # Gloves, Helmet, No-Helmet, No-gloves, No-vest, Vest
+    violation_classes: ["No-Helmet"]
+    min_confidence: 0.5
+    consecutive_frames: 3
+    cooldown_s: 10.0
+    retry_after_reject_s: 2.0
+    action_name: navigate_to_pose
+    goal_frame: map
+    goal_x: 1.0
+    goal_y: 0.0
+    goal_yaw: 0.0
+    goal_timeout_s: 120.0

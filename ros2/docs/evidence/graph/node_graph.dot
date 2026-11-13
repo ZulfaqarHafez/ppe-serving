@@ -1,0 +1,33 @@
+digraph ppe {
+  rankdir=LR; node [fontname="Helvetica", fontsize=11];
+  "/ppe_detector" [shape=box, style="rounded,filled", fillcolor="#dbe8f6"];
+  "/ppe_patrol" [shape=box, style="rounded,filled", fillcolor="#dbe8f6"];
+  "/camera_bridge" [shape=box, style="rounded,filled", fillcolor="#dbe8f6"];
+  "/bt_navigator" [shape=box, style="rounded,filled", fillcolor="#dbe8f6"];
+  "/controller_server" [shape=box, style="rounded,filled", fillcolor="#dbe8f6"];
+  "/planner_server" [shape=box, style="rounded,filled", fillcolor="#dbe8f6"];
+  "/amcl" [shape=box, style="rounded,filled", fillcolor="#dbe8f6"];
+  "/camera/image_raw" [shape=ellipse, label="/camera/image_raw\nsensor_msgs/msg/Image", fontsize=9];
+  "/camera/image_raw" -> "/ppe_detector";
+  "/detections" [shape=ellipse, label="/detections\nvision_msgs/msg/Detection2DArray", fontsize=9];
+  "/ppe_detector" -> "/detections";
+  "/detections/image" [shape=ellipse, label="/detections/image\nsensor_msgs/msg/Image", fontsize=9];
+  "/ppe_detector" -> "/detections/image";
+  "/detections" -> "/ppe_patrol";
+  "/patrol/events" [shape=ellipse, label="/patrol/events\nstd_msgs/msg/String", fontsize=9];
+  "/ppe_patrol" -> "/patrol/events";
+  "/navigate_to_pose" [shape=hexagon, label="/navigate_to_pose\nnav2_msgs/action/NavigateToPose", fontsize=9];
+  "/navigate_to_pose" -> "/ppe_patrol";
+  "/camera_bridge" -> "/camera/image_raw";
+  "/odom" [shape=ellipse, label="/odom\nnav_msgs/msg/Odometry", fontsize=9];
+  "/odom" -> "/bt_navigator";
+  "/tf" [shape=ellipse, label="/tf\ntf2_msgs/msg/TFMessage", fontsize=9];
+  "/tf" -> "/bt_navigator";
+  "/bt_navigator" -> "/navigate_to_pose";
+  "/navigate_to_pose" -> "/bt_navigator";
+  "/odom" -> "/controller_server";
+  "/tf" -> "/amcl";
+  "/amcl" -> "/tf";
+  "gz sim (headless)" [shape=box, style="rounded,dashed"];
+  "gz sim (headless)" -> "/camera_bridge" [label="gz.msgs.Image"];
+}

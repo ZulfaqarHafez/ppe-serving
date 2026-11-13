@@ -1,0 +1,51 @@
+{
+ "what": "One headless run of gazebo_demo.launch.py: Gazebo Harmonic, TurtleBot3 Waffle with an RGB camera, Nav2 (AMCL, tb3_sandbox map), the detector on the simulated camera (5 Hz) and the patrol node sending a real NavigateToPose goal.",
+ "goal_result": "succeeded",
+ "goals_sent": 2,
+ "goal_events": [
+  "goal_sent",
+  "goal_rejected",
+  "goal_sent",
+  "goal_accepted",
+  "succeeded"
+ ],
+ "wall_s_launch_to_result": 19.0,
+ "accepted_goal": {
+  "label": "No-vest",
+  "score": 0.6726,
+  "frames": 3,
+  "sim_s_trigger_image_to_goal_sent": 0.072,
+  "sim_s_goal_sent_to_result": 9.795,
+  "wall_s_goal_sent_to_result": 10.102
+ },
+ "real_time_factor_note": "sim seconds / real seconds from /world/default/stats; first window starts when the goal is accepted (20 s), second after the result (10 s)",
+ "real_time_factor_while_driving": {
+  "sim_s": 19.374,
+  "real_s": 19.88,
+  "rtf": 0.975
+ },
+ "real_time_factor_after_goal": {
+  "sim_s": 9.735,
+  "real_s": 9.917,
+  "rtf": 0.982
+ },
+ "detector_in_sim": {
+  "frames": 185,
+  "fps_wall": 4.86,
+  "inference_ms_p50": 46.655,
+  "inference_ms_p95": 81.603,
+  "max_score_by_class": {
+   "No-vest": 0.693,
+   "No-Helmet": 0.392,
+   "Gloves": 0.313,
+   "Vest": 0.281
+  },
+  "median_score_by_class": {
+   "No-vest": 0.668,
+   "No-Helmet": 0.3,
+   "Gloves": 0.313,
+   "Vest": 0.281
+  }
+ },
+ "frames_saved": 12
+}

@@ -1,0 +1,241 @@
+[INFO] [1794467199.117918311] [ppe_detector]: loaded <workspace>/install/ppe_detector/share/ppe_detector/models/ppe_yolov8s_320_int8dyn.onnx (input 320, intra-op threads 1)
+[INFO] [1794467199.124884246] [ppe_detector]: active, listening on /camera/image_raw
+[INFO] [1794467203.066841729] [sample_image_publisher]: replaying 5 images at 50.0 Hz on /camera/image_raw
+[INFO] [1794467237.922356617] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467238.086585404] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467238.428914473] [ppe_detector]: loaded <workspace>/install/ppe_detector/share/ppe_detector/models/ppe_yolov8s_320_int8dyn.onnx (input 320, intra-op threads 1)
+[INFO] [1794467238.434859922] [ppe_detector]: active, listening on /camera/image_raw
+[INFO] [1794467242.402413741] [sample_image_publisher]: replaying 5 images at 5.0 Hz on /camera/image_raw
+[INFO] [1794467277.253538858] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467277.417945111] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467277.771566509] [ppe_detector]: loaded <workspace>/install/ppe_detector/share/ppe_detector/models/ppe_yolov8s_320_int8dyn.onnx (input 320, intra-op threads default)
+[INFO] [1794467277.777548424] [ppe_detector]: active, listening on /camera/image_raw
+[INFO] [1794467281.723250202] [sample_image_publisher]: replaying 5 images at 50.0 Hz on /camera/image_raw
+[INFO] [1794467316.584735074] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467316.748684660] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467317.131099390] [ppe_detector]: loaded <workspace>/install/ppe_detector/share/ppe_detector/models/ppe_yolov8s_320_int8dyn.onnx (input 320, intra-op threads default)
+[INFO] [1794467317.137309253] [ppe_detector]: active, listening on /camera/image_raw
+[INFO] [1794467321.057617380] [sample_image_publisher]: replaying 5 images at 5.0 Hz on /camera/image_raw
+[INFO] [1794467355.915709049] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467356.081441749] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467356.466626921] [ppe_detector]: loaded <workspace>/install/ppe_detector/share/ppe_detector/models/ppe_yolov8s_320_int8dyn.onnx (input 320, intra-op threads default)
+[INFO] [1794467356.474772735] [ppe_detector]: active, listening on /camera/image_raw
+[INFO] [1794467360.387791092] [sample_image_publisher]: replaying 5 images at 5.0 Hz on /camera/image_raw
+[INFO] [1794467395.247855961] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1794467395.411778249] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [launch]: All log files can be found below /root/.ros/log/2026-11-12-07-09-55-816634-vm-25027
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [sample_image_publisher-1]: process started with pid [25043]
+[INFO] [ppe_detector_node-2]: process started with pid [25044]
+[INFO] [ppe_patrol_node-3]: process started with pid [25045]
+[INFO] [fake_navigate_to_pose_server-4]: process started with pid [25046]
+[fake_navigate_to_pose_server-4] [WARN] [1794467395.983081527] [fake_navigate_to_pose_server]: fake NavigateToPose server (stand-in for Nav2) is up
+[ppe_patrol_node-3] [INFO] [1794467395.987601842] [ppe_patrol]: watching /detections for No-Helmet; goal (1.00, 0.00) in map via navigate_to_pose
+[sample_image_publisher-1] [INFO] [1794467396.060957605] [sample_image_publisher]: replaying 1 images at 5.0 Hz on /camera/image_raw
+[ppe_detector_node-2] [INFO] [1794467396.628738122] [ppe_detector]: loaded <workspace>/install/ppe_detector/share/ppe_detector/models/ppe_yolov8s_320_int8dyn.onnx (input 320, intra-op threads default)
+[ppe_detector_node-2] [INFO] [1794467396.638662256] [ppe_detector]: active, listening on /camera/image_raw
+[ppe_patrol_node-3] [INFO] [1794467399.512174739] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467399.512941322] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467399.513329380] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467399.514074074] [ppe_patrol]: feedback: 0.95 m remaining
+[ppe_patrol_node-3] [INFO] [1794467400.518706417] [ppe_patrol]: feedback: 0.45 m remaining
+[fake_navigate_to_pose_server-4] [INFO] [1794467401.414194166] [fake_navigate_to_pose_server]: goal reached (fake) after 1.9 s
+[ppe_patrol_node-3] [INFO] [1794467401.414490206] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467402.909333214] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467402.914653792] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467402.914888768] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467402.918656481] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467402.919525285] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467404.514770714] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467404.518682697] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467404.518890653] [ppe_patrol]: goal accepted
+[fake_navigate_to_pose_server-4] [INFO] [1794467404.519714095] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467404.520784018] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467406.111693428] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467406.112590391] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467406.113290085] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467406.113461615] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467406.114277609] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467407.706761191] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467407.710588718] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467407.710892066] [ppe_patrol]: goal accepted
+[fake_navigate_to_pose_server-4] [INFO] [1794467407.711157495] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467407.711943459] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467409.308407212] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467409.308709103] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467409.309015851] [ppe_patrol]: goal accepted
+[fake_navigate_to_pose_server-4] [INFO] [1794467409.310645737] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467409.310669755] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467410.706639128] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467410.710679425] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467410.711194587] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467410.714694260] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467410.715688224] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467412.303953421] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467412.305300314] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467412.305682957] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467412.305767659] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467412.306050337] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467413.705267675] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467413.706630078] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467413.706873413] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467413.707529562] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467413.707969310] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467415.106665066] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467415.108467704] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467415.108698024] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467415.108665190] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467415.109512964] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467416.518761583] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467416.520389645] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467416.520608407] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467416.520631679] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467416.522109653] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467418.111929788] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467418.114782114] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467418.115015917] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467418.114969956] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467418.115862120] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467419.706156713] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467419.706456425] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467419.706605563] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467419.706955550] [ppe_patrol]: goal succeeded
+[fake_navigate_to_pose_server-4] [INFO] [1794467419.707122177] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467421.310302175] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467421.314652982] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467421.314908932] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467421.315202949] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467421.316743254] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467422.904819627] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[ppe_patrol_node-3] [INFO] [1794467422.905498765] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467422.905781530] [ppe_patrol]: goal succeeded
+[fake_navigate_to_pose_server-4] [INFO] [1794467422.905088918] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467422.905333027] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467424.312021858] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467424.312985935] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467424.313710651] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467424.314147253] [ppe_patrol]: goal succeeded
+[fake_navigate_to_pose_server-4] [INFO] [1794467424.314470963] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467425.906840065] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467425.910890219] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467425.911511190] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467425.911704741] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467425.912355848] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467427.308758783] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467427.309639743] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467427.310150119] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467427.310465137] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467427.311175049] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467428.909914892] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467428.910187441] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467428.914751057] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467428.914749236] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467428.916184877] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467430.323518160] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467430.325529824] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467430.325741057] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467430.326732580] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467430.327593452] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467431.901366277] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467431.902835510] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467431.903037151] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467431.903763127] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467431.906696350] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467433.304200811] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467433.304518074] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467433.304735253] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467433.304916405] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467433.305109451] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467434.710613554] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467434.711481912] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467434.711687194] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467434.712266841] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467434.712839609] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467436.326046373] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467436.330647108] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467436.330889603] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467436.331469272] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467436.332314443] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467437.914136628] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467437.914457925] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467437.914690804] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467437.916787460] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467437.917641061] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467439.511450395] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467439.512208241] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467439.512467912] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467439.513063817] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467439.514081140] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467441.112280569] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467441.113055543] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467441.113336551] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467441.113607021] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467441.114055566] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467442.694725578] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467442.695421418] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467442.695688907] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467442.695608847] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467442.695902398] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467444.112210640] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467444.113305335] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467444.113489820] [ppe_patrol]: goal accepted
+[fake_navigate_to_pose_server-4] [INFO] [1794467444.114049004] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467444.114386825] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467445.701345271] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467445.701991477] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467445.702313002] [ppe_patrol]: goal accepted
+[fake_navigate_to_pose_server-4] [INFO] [1794467445.702868888] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467445.703094169] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467447.103182337] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467447.104664924] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467447.104928360] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467447.105058700] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467447.106300669] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467448.501065750] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467448.501787588] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[ppe_patrol_node-3] [INFO] [1794467448.502453281] [ppe_patrol]: goal accepted
+[fake_navigate_to_pose_server-4] [INFO] [1794467448.506713511] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467448.506731111] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467450.110643745] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467450.110932640] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467450.111154023] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467450.111355083] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467450.111538843] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467451.514659091] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467451.516016997] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467451.516302796] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467451.516506912] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467451.517061798] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467453.098653652] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[ppe_patrol_node-3] [INFO] [1794467453.099062698] [ppe_patrol]: goal accepted
+[fake_navigate_to_pose_server-4] [INFO] [1794467453.098898558] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467453.099136868] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467453.099773056] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467454.502364094] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467454.503074793] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467454.503471384] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467454.503691966] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467454.504214456] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467455.910642866] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467455.910914752] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467455.911091682] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467455.911323105] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467455.911535027] [ppe_patrol]: goal succeeded
+[ppe_patrol_node-3] [INFO] [1794467457.304755088] [ppe_patrol]: No-Helmet 0.63 for 3 frames: sending NavigateToPose to (1.00, 0.00)
+[fake_navigate_to_pose_server-4] [INFO] [1794467457.305330207] [fake_navigate_to_pose_server]: goal (1.00, 0.00) in map: accepting
+[fake_navigate_to_pose_server-4] [INFO] [1794467457.305542579] [fake_navigate_to_pose_server]: goal reached (fake) after 0.0 s
+[ppe_patrol_node-3] [INFO] [1794467457.305746409] [ppe_patrol]: goal accepted
+[ppe_patrol_node-3] [INFO] [1794467457.306393852] [ppe_patrol]: goal succeeded
+[WARNING] [launch]: user interrupted with ctrl-c (SIGINT)
+[fake_navigate_to_pose_server-4] [INFO] [1794467458.576685374] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[ppe_detector_node-2] [INFO] [1794467458.576727046] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[ppe_patrol_node-3] [INFO] [1794467458.576734582] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[sample_image_publisher-1] [INFO] [1794467458.576731375] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [fake_navigate_to_pose_server-4]: sending signal 'SIGINT' to process[fake_navigate_to_pose_server-4]
+[INFO] [ppe_patrol_node-3]: sending signal 'SIGINT' to process[ppe_patrol_node-3]
+[INFO] [ppe_detector_node-2]: sending signal 'SIGINT' to process[ppe_detector_node-2]
+[INFO] [sample_image_publisher-1]: sending signal 'SIGINT' to process[sample_image_publisher-1]
+[ERROR] [fake_navigate_to_pose_server-4]: process has died [pid 25046, exit code -2, cmd '<workspace>/install/ppe_bringup/lib/ppe_bringup/fake_navigate_to_pose_server --ros-args -r __node:=fake_navigate_to_pose_server'].
+[ERROR] [ppe_patrol_node-3]: process has died [pid 25045, exit code -2, cmd '<workspace>/install/ppe_patrol/lib/ppe_patrol/ppe_patrol_node --ros-args -r __node:=ppe_patrol --params-file <workspace>/install/ppe_patrol/share/ppe_patrol/config/patrol.yaml --params-file /tmp/launch_params_2nnct4jw'].
+[ERROR] [ppe_detector_node-2]: process has died [pid 25044, exit code -2, cmd '<workspace>/install/ppe_detector/lib/ppe_detector/ppe_detector_node --ros-args -r __node:=ppe_detector -r __ns:=/ --params-file <workspace>/install/ppe_detector/share/ppe_detector/config/detector.yaml --params-file /tmp/launch_params_1zzvs1w7'].
+[ERROR] [sample_image_publisher-1]: process has died [pid 25043, exit code -2, cmd '<workspace>/install/ppe_bringup/lib/ppe_bringup/sample_image_publisher --ros-args -r __node:=sample_image_publisher --params-file /tmp/launch_params_wnwoyliq'].
