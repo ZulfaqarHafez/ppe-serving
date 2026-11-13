@@ -1,0 +1,201 @@
+# scripts/ci_local.sh, 2026-11-13T09:37:04Z
+::group::tools
+k6 v1.0.0 (commit/41b4984b75, go1.24.2, linux/amd64)
+v0.7.0
+Client Version: v1.33.1
+1.7.7
+::endgroup::
+::group::lint
+All checks passed!
+24 files already formatted
+::endgroup::
+::group::typecheck
+Success: no issues found in 22 source files
+::endgroup::
+::group::lock
+Resolved 39 packages in 1ms
+requirements.lock matches uv.lock
+::endgroup::
+::group::model
+ppe_yolov8s_320_int8dyn.onnx: already present, SHA-256 verified
+::endgroup::
+::group::test
+....................................................................     [100%]
+68 passed in 3.34s
+::endgroup::
+::group::image
+#0 building with "default" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile
+#1 transferring dockerfile: 3.34kB done
+#1 DONE 0.0s
+
+#2 resolve image config for docker-image://docker.io/docker/dockerfile:1.7
+#2 DONE 0.6s
+
+#3 docker-image://docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e
+#3 resolve docker.io/docker/dockerfile:1.7@sha256:a57df69d0ea827fb7266491f2813635de6f17269be881f696fbfdf2d83dda33e 0.0s done
+#3 CACHED
+
+#4 [internal] load metadata for docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#4 DONE 0.9s
+
+#5 [internal] load .dockerignore
+#5 transferring context: 130B done
+#5 DONE 0.0s
+
+#6 [internal] load build context
+#6 DONE 0.0s
+
+#7 [model 1/6] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#7 resolve docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90 0.0s done
+#7 DONE 0.0s
+
+#6 [internal] load build context
+#6 transferring context: 11.42kB done
+#6 DONE 0.0s
+
+#7 [model 1/6] FROM docker.io/library/python:3.13-slim@sha256:e48f59cdba69a3cbd9ed2cf0f348d90d45a8d350d98134cf1070bc106ee9ed90
+#7 CACHED
+
+#8 [deps 2/3] COPY requirements.lock <tmp>
+#8 DONE 0.0s
+
+#9 [deps 3/3] RUN --mount=type=secret,id=extra_ca,required=false     if [ -s /run/secrets/extra_ca ]; then export PIP_CERT=/run/secrets/extra_ca; fi     && python -m venv /opt/venv     && /opt/venv/bin/pip install --no-deps --require-hashes -r <tmp>     && /opt/venv/bin/pip uninstall -y pip
+#9 3.680 Collecting annotated-doc==0.0.6 (from -r <tmp> (line 1))
+#9 3.761   Downloading annotated_doc-0.0.6-py3-none-any.whl (5.3 kB)
+#9 3.786 Collecting annotated-types==0.8.0 (from -r <tmp> (line 5))
+#9 3.816   Downloading annotated_types-0.8.0-py3-none-any.whl (13 kB)
+#9 3.848 Collecting anyio==4.16.0 (from -r <tmp> (line 9))
+#9 3.875   Downloading anyio-4.16.0-py3-none-any.whl (134 kB)
+#9 3.917 Collecting click==8.5.1 (from -r <tmp> (line 15))
+#9 3.944   Downloading click-8.5.1-py3-none-any.whl (126 kB)
+#9 3.998 Collecting fastapi==0.162.5 (from -r <tmp> (line 19))
+#9 4.024   Downloading fastapi-0.162.5-py3-none-any.whl (151 kB)
+#9 4.065 Collecting flatbuffers==25.12.19 (from -r <tmp> (line 23))
+#9 4.093   Downloading flatbuffers-25.12.19-py2.py3-none-any.whl (26 kB)
+#9 4.115 Collecting h11==0.16.0 (from -r <tmp> (line 26))
+#9 4.143   Downloading h11-0.16.0-py3-none-any.whl (37 kB)
+#9 4.203 Collecting httptools==0.9.0 (from -r <tmp> (line 30))
+#9 4.231   Downloading httptools-0.9.0-cp313-cp313-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl (520 kB)
+#9 4.311 Collecting idna==3.20 (from -r <tmp> (line 46))
+#9 4.339   Downloading idna-3.20-py3-none-any.whl (69 kB)
+#9 4.594 Collecting numpy==2.5.4 (from -r <tmp> (line 50))
+#9 4.621   Downloading numpy-2.5.4-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (16.7 MB)
+#9 7.490      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 16.7/16.7 MB 5.8 MB/s  0:00:02
+#9 7.580 Collecting onnxruntime==1.31.1 (from -r <tmp> (line 66))
+#9 7.607   Downloading onnxruntime-1.31.1-cp313-cp313-manylinux_2_28_x86_64.whl (23.8 MB)
+#9 14.02      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 23.8/23.8 MB 3.7 MB/s  0:00:06
+#9 14.07 Collecting opentelemetry-api==1.45.2 (from -r <tmp> (line 75))
+#9 14.10   Downloading opentelemetry_api-1.45.2-py3-none-any.whl (60 kB)
+#9 14.13 Collecting packaging==26.3 (from -r <tmp> (line 79))
+#9 14.16   Downloading packaging-26.3-py3-none-any.whl (129 kB)
+#9 14.32 Collecting pillow==13.0.0 (from -r <tmp> (line 83))
+#9 14.35   Downloading pillow-13.0.0-cp313-cp313-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl (7.1 MB)
+#9 15.46      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 7.1/7.1 MB 6.5 MB/s  0:00:01
+#9 15.49 Collecting prometheus-client==0.26.0 (from -r <tmp> (line 98))
+#9 15.52   Downloading prometheus_client-0.26.0-py3-none-any.whl (64 kB)
+#9 15.73 Collecting protobuf==7.36.2 (from -r <tmp> (line 102))
+#9 15.76   Downloading protobuf-7.36.2-cp310-abi3-manylinux2014_x86_64.whl (343 kB)
+#9 15.93 Collecting pydantic==2.14.3 (from -r <tmp> (line 112))
+#9 15.96   Downloading pydantic-2.14.3-py3-none-any.whl (494 kB)
+#9 16.65 Collecting pydantic-core==2.50.4 (from -r <tmp> (line 116))
+#9 16.67   Downloading pydantic_core-2.50.4-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.whl (2.3 MB)
+#9 16.97      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 2.3/2.3 MB 7.8 MB/s  0:00:00
+#9 16.99 Collecting python-multipart==0.0.33 (from -r <tmp> (line 137))
+#9 17.02   Downloading python_multipart-0.0.33-py3-none-any.whl (32 kB)
+#9 17.06 Collecting starlette==1.10.0 (from -r <tmp> (line 141))
+#9 17.09   Downloading starlette-1.10.0-py3-none-any.whl (80 kB)
+#9 17.12 Collecting typing-extensions==4.16.0 (from -r <tmp> (line 145))
+#9 17.15   Downloading typing_extensions-4.16.0-py3-none-any.whl (45 kB)
+#9 17.18 Collecting typing-inspection==0.4.5 (from -r <tmp> (line 155))
+#9 17.21   Downloading typing_inspection-0.4.5-py3-none-any.whl (14 kB)
+#9 17.24 Collecting uvicorn==0.54.0 (from -r <tmp> (line 161))
+#9 17.26   Downloading uvicorn-0.54.0-py3-none-any.whl (87 kB)
+#9 17.32 Collecting uvloop==0.23.0 (from -r <tmp> (line 165))
+#9 17.35   Downloading uvloop-0.23.0-cp313-cp313-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl (4.5 MB)
+#9 17.91      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 4.5/4.5 MB 8.0 MB/s  0:00:00
+#9 17.94 Installing collected packages: flatbuffers, uvloop, uvicorn, typing-inspection, typing-extensions, starlette, python-multipart, pydantic-core, pydantic, protobuf, prometheus-client, pillow, packaging, opentelemetry-api, onnxruntime, numpy, idna, httptools, h11, fastapi, click, anyio, annotated-types, annotated-doc
+#9 22.38 
+#9 22.38 Successfully installed annotated-doc-0.0.6 annotated-types-0.8.0 anyio-4.16.0 click-8.5.1 fastapi-0.162.5 flatbuffers-25.12.19 h11-0.16.0 httptools-0.9.0 idna-3.20 numpy-2.5.4 onnxruntime-1.31.1 opentelemetry-api-1.45.2 packaging-26.3 pillow-13.0.0 prometheus-client-0.26.0 protobuf-7.36.2 pydantic-2.14.3 pydantic-core-2.50.4 python-multipart-0.0.33 starlette-1.10.0 typing-extensions-4.16.0 typing-inspection-0.4.5 uvicorn-0.54.0 uvloop-0.23.0
+#9 22.75 Found existing installation: pip 26.2.2
+#9 22.77 Uninstalling pip-26.2.2:
+#9 22.78   Successfully uninstalled pip-26.2.2
+#9 DONE 23.0s
+
+#10 [model 2/6] WORKDIR /build
+#10 CACHED
+
+#11 [model 3/6] COPY registry/manifest.json registry/manifest.json
+#11 CACHED
+
+#12 [model 4/6] COPY src/ppe_service/__init__.py src/ppe_service/registry.py src/ppe_service/
+#12 CACHED
+
+#13 [model 5/6] COPY scripts/fetch_model.py scripts/fetch_model.py
+#13 CACHED
+
+#14 [model 6/6] RUN --mount=type=secret,id=extra_ca,required=false     if [ -s /run/secrets/extra_ca ]; then export SSL_CERT_FILE=/run/secrets/extra_ca; fi     && python scripts/fetch_model.py 
+#14 CACHED
+
+#15 [runtime 2/9] RUN groupadd --system --gid 10001 ppe     && useradd --system --uid 10001 --gid 10001 --no-create-home --shell /usr/sbin/nologin ppe
+#15 CACHED
+
+#16 [runtime 3/9] COPY --from=deps /opt/venv /opt/venv
+#16 DONE 0.5s
+
+#17 [runtime 4/9] WORKDIR /app
+#17 DONE 0.0s
+
+#18 [runtime 5/9] COPY registry/manifest.json registry/manifest.json
+#18 DONE 0.0s
+
+#19 [runtime 6/9] COPY scripts/fetch_model.py scripts/fetch_model.py
+#19 DONE 0.0s
+
+#20 [runtime 7/9] COPY src src
+#20 DONE 0.0s
+
+#21 [runtime 8/9] COPY --from=model /build/models/ppe_yolov8s_320_int8dyn.onnx models/ppe_yolov8s_320_int8dyn.onnx
+#21 DONE 0.0s
+
+#22 [runtime 9/9] RUN python scripts/fetch_model.py --verify-only models/ppe_yolov8s_320_int8dyn.onnx     && python -m compileall -q src
+#22 0.471 ppe_yolov8s_320_int8dyn.onnx: SHA-256 d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2 verified
+#22 DONE 0.7s
+
+#23 exporting to image
+#23 exporting layers
+#23 exporting layers 8.4s done
+#23 exporting manifest sha256:9c3afec4d35b657e023794d1ecd2eaef8b018d92cb61423f90a680a0c04d5aa1 done
+#23 exporting config sha256:d2487c6ebad903c0e43d3d9a8384da5c98c7cc8c2dcf9d303c627b5683dbbe3d done
+#23 exporting attestation manifest sha256:b2c9d397b48267d40516ebfc43087b8b14f03cfc2aa8c8bbcd8b5feadaae27db done
+#23 exporting manifest list sha256:4d8447b753a6e2906055ff16c4a6728e3021703d8c0d4eba91563bdf888b14c0 done
+#23 naming to docker.io/library/ppe-service:ci done
+#23 unpacking to docker.io/library/ppe-service:ci
+#23 unpacking to docker.io/library/ppe-service:ci 1.7s done
+#23 DONE 10.2s
+image size: 469146136 bytes
+::endgroup::
+::group::smoke
+{"status":"ok"}
+detect ok: ['No-vest', 'No-Helmet'] {'decode': 68.022, 'preprocess': 5.947, 'inference': 104.227, 'postprocess': 0.818, 'queue': 0.334, 'total': 179.949}
+ppe_http_requests_total{method="GET",route="/readyz",status="200"} 1.0
+ppe_http_requests_total{method="GET",route="/healthz",status="200"} 1.0
+ppe_http_requests_total{method="POST",route="/v1/detect",status="200"} 1.0
+docker healthcheck: healthy
+user: 10001:10001
+checksum mismatch exit code: 3
+::endgroup::
+::group::k6-gate
+{"label":"ci gate","vus":2,"duration":"20s","keepalive":true,"image":"site-backs.webp","requests":448,"throughput_rps":22.3496721689797,"error_rate":0,"checks_passed":448,"checks_failed":0,"latency_ms":{"avg":89.09716777008934,"min":79.335731,"p50":84.709911,"p90":103.76912519999999,"p95":115.19251515,"p99":137.9918561899999,"max":170.746296},"thresholds_ok":true}
+::endgroup::
+::group::manifests
+== k8s/base
+Summary: 5 resources found parsing stdin - Valid: 5, Invalid: 0, Errors: 0, Skipped: 0
+== k8s/overlays/kind
+Summary: 6 resources found parsing stdin - Valid: 6, Invalid: 0, Errors: 0, Skipped: 0
+::endgroup::
+::group::actionlint
+actionlint ok
+::endgroup::
+# all CI steps passed

@@ -1,0 +1,17 @@
+# kind create cluster with stock kindest/node:v1.33.1 (2026-11-13T09:32:22Z)
+k8s.io/kubernetes/cmd/kubeadm/app.Run
+	k8s.io/kubernetes/cmd/kubeadm/app/kubeadm.go:47
+main.main
+	k8s.io/kubernetes/cmd/kubeadm/kubeadm.go:25
+runtime.main
+	runtime/proc.go:283
+runtime.goexit
+	runtime/asm_amd64.s:1700
+kind exit code: 1
+
+# containerd and kubelet log lines mentioning oom_score_adj (first 4)
+Nov 13 09:32:30 ppe-stock-control-plane kubelet[253]: I1113 09:32:30.191085     253 server.go:904] "Failed to ApplyOOMScoreAdj" err="write /proc/self/oom_score_adj: permission denied"
+Nov 13 09:32:30 ppe-stock-control-plane kubelet[253]: E1113 09:32:30.470690     253 container_manager_linux.go:519] "Failed to ensure process in container with oom score" err="failed to apply oom score -999 to PID 253: write /proc/253/oom_score_adj: permission denied"
+
+# kube-system containers as seen by the runtime
+CONTAINER           IMAGE               CREATED             STATE               NAME                ATTEMPT             POD ID              POD                 NAMESPACE

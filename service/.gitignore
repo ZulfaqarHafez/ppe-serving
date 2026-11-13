@@ -8,3 +8,4 @@ models/*
 !models/.gitkeep
 results/**/raw/
 *.tar
+.ci-tools/
