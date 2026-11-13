@@ -20,6 +20,7 @@ const char* to_string(ErrorCode code) noexcept {
   return "unknown";
 }
 
-Error::Error(ErrorCode code, const std::string& message) : std::runtime_error(message), code_(code) {}
+Error::Error(ErrorCode code, const std::string& message)
+    : std::runtime_error(message), code_(code) {}
 
 }  // namespace ppe

@@ -86,8 +86,7 @@ std::vector<Detection> non_max_suppression(std::vector<Detection> candidates,
 
 std::vector<Detection> postprocess(const float* output, std::size_t count, const Letterbox& box,
                                    const DetectParams& params) {
-  return non_max_suppression(decode_candidates(output, count, box, params.score_threshold),
-                             params);
+  return non_max_suppression(decode_candidates(output, count, box, params.score_threshold), params);
 }
 
 }  // namespace ppe

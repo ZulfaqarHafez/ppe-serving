@@ -1,8 +1,8 @@
 #include <doctest.h>
 
+#include <algorithm>
 #include <cstddef>
 #include <cstdint>
-#include <cstring>
 #include <string>
 #include <vector>
 
@@ -22,7 +22,7 @@ ppe::Image decode(const Bytes& bytes) {
 template <typename Pixels>
 void check_pixels(const ppe::Image& image, const Pixels& expected) {
   REQUIRE(image.size_bytes() == expected.size());
-  CHECK(std::memcmp(image.data(), expected.data(), expected.size()) == 0);
+  CHECK(std::equal(expected.begin(), expected.end(), image.data()));
 }
 
 ppe::ErrorCode code_of(const std::string& path) {

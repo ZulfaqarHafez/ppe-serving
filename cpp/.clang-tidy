@@ -1,0 +1,52 @@
+---
+# Checks for the project's own code (third_party/ and the stb translation unit
+# are excluded). Every disabled check has a reason below.
+Checks: >
+  -*,
+  bugprone-*,
+  cert-*,
+  clang-analyzer-*,
+  concurrency-*,
+  cppcoreguidelines-*,
+  misc-*,
+  modernize-*,
+  performance-*,
+  portability-*,
+  readability-*,
+  -bugprone-easily-swappable-parameters,
+  -cppcoreguidelines-avoid-magic-numbers,
+  -readability-magic-numbers,
+  -cppcoreguidelines-pro-bounds-pointer-arithmetic,
+  -cppcoreguidelines-pro-bounds-constant-array-index,
+  -cppcoreguidelines-avoid-do-while,
+  -misc-include-cleaner,
+  -misc-non-private-member-variables-in-classes,
+  -modernize-use-trailing-return-type,
+  -modernize-use-nodiscard,
+  -readability-identifier-length,
+  -readability-function-cognitive-complexity,
+  -readability-uppercase-literal-suffix,
+  -cert-err58-cpp
+# Why the exclusions:
+#  easily-swappable-parameters: (width, height, stride, ...) signatures mirror
+#    Pillow's and are covered by tests.
+#  magic-numbers: image constants (3 channels, 255, 114) read better inline.
+#  pointer-arithmetic, constant-array-index: pixel loops index raw buffers by
+#    design; bounds are checked at the API (sizes validated before the loops).
+#  avoid-do-while, cert-err58-cpp: triggered inside doctest's macros.
+#  include-cleaner: noisy with the ONNX Runtime umbrella header.
+#  non-private-member-variables: plain structs (Letterbox, Detection) are data.
+#  trailing-return-type, use-nodiscard: style choices; nodiscard is used where
+#    discarding a result is a likely bug.
+#  identifier-length: x, y, w, h are the clearest names in geometry code.
+#  cognitive-complexity: the argument parser is a flat if/else chain.
+#  uppercase-literal-suffix: 0.0F and 0.0f are both fine.
+WarningsAsErrors: '*'
+HeaderFilterRegex: '.*/cpp/(include|src|tools|bench|tests)/.*'
+FormatStyle: file
+CheckOptions:
+  - key: readability-implicit-bool-conversion.AllowPointerConditions
+    value: true
+  - key: cppcoreguidelines-special-member-functions.AllowSoleDefaultDtor
+    value: true
+...

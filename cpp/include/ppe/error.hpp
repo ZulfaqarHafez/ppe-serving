@@ -4,12 +4,13 @@
 #ifndef PPE_ERROR_HPP
 #define PPE_ERROR_HPP
 
+#include <cstdint>
 #include <stdexcept>
 #include <string>
 
 namespace ppe {
 
-enum class ErrorCode {
+enum class ErrorCode : std::uint8_t {
   kInvalidArgument,  // a caller passed a value the library cannot use
   kImageRead,        // an image file is missing, unreadable or not a decodable image
   kModelLoad,        // the model file is missing, invalid, or has an unexpected shape

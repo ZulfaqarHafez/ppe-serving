@@ -1,0 +1,49 @@
+{
+ "generated_by": "scripts/export_fp32.py --compare-int8",
+ "weights": {
+  "url": "https://huggingface.co/iMaximusiV/yolo-ppe-detector/resolve/212555357a34d9058cab905c71f43448c0f079fa/best_deep.pt",
+  "sha256": "f1d1422e135d06b6b866b2ba0b25c519ff7d0179023b0aa5b3b1571898217c16"
+ },
+ "fp32": {
+  "file": "ppe_yolov8s_320_fp32.onnx",
+  "bytes": 44628163,
+  "sha256": "a1d0659510140172deed05a2aede20b4899a1026b5cbe21fdbb8b03c235923d0",
+  "export": "Ultralytics ONNX export, imgsz 320, opset 12, simplify, static batch 1, no NMS, 'date' metadata removed"
+ },
+ "requantized": {
+  "bytes": 11366723,
+  "onnxruntime": "1.29.0",
+  "method": "quantize_dynamic, QuantType.QUInt8"
+ },
+ "served_int8": {
+  "file": "ppe_yolov8s_320_int8dyn.onnx",
+  "bytes": 11366765,
+  "sha256": "d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2",
+  "date_metadata_bytes": 32
+ },
+ "initializers": {
+  "requantized": 332,
+  "served": 332,
+  "identical": 318,
+  "different": {
+   "model.0.conv.weight_scale": 7.380217592431322e-08,
+   "model.15.cv1.conv.weight_scale": 9.062875967745225e-08,
+   "model.18.cv1.conv.weight_scale": 7.697945549197994e-08,
+   "model.18.m.0.cv1.conv.weight_scale": 9.556595015776983e-08,
+   "model.19.conv.weight_scale": 7.647919754354936e-08,
+   "model.21.m.0.cv2.conv.weight_quantized": 0.008771929824561403,
+   "model.21.m.0.cv2.conv.weight_scale": 9.026626381434901e-08,
+   "model.22.cv2.1.0.conv.weight_scale": 6.97091018268037e-08,
+   "model.22.cv2.1.1.conv.weight_scale": 1.0154737896060165e-07,
+   "model.22.cv3.1.1.conv.weight_scale": 1.1150677431530659e-07,
+   "model.4.m.0.cv1.conv.weight_scale": 8.441842668534003e-08,
+   "model.4.m.0.cv2.conv.weight_scale": 1.0257905280349065e-07,
+   "model.6.cv1.conv.weight_scale": 1.0059318797014112e-07,
+   "model.8.cv2.conv.weight_scale": 7.769160225255924e-08
+  }
+ },
+ "nodes": {
+  "requantized": 611,
+  "served": 611
+ }
+}

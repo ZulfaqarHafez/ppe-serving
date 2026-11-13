@@ -1,0 +1,5 @@
+# The Python side of the parity test and the benchmark. Pinned to the versions
+# measured; onnxruntime matches the C++ library's prebuilt release (1.29.0).
+onnxruntime==1.29.0
+numpy==2.5.3
+pillow==12.3.0

@@ -9,6 +9,7 @@
 #define STBI_NO_STDIO
 #define STBI_NO_LINEAR
 #define STBI_NO_HDR
+// stb reads this as a macro. NOLINTNEXTLINE(cppcoreguidelines-macro-*,modernize-macro-to-enum)
 #define STBI_MAX_DIMENSIONS 16384  // matches ppe::kMaxImageSide
 
 #include "stb_image.h"

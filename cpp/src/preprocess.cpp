@@ -14,10 +14,9 @@ namespace ppe {
 
 Letterbox compute_letterbox(int width, int height, int size) {
   if (width <= 0 || height <= 0 || size <= 0) {
-    throw Error(ErrorCode::kInvalidArgument, "letterbox needs positive sizes, got " +
-                                                 std::to_string(width) + "x" +
-                                                 std::to_string(height) + " into " +
-                                                 std::to_string(size));
+    throw Error(ErrorCode::kInvalidArgument,
+                "letterbox needs positive sizes, got " + std::to_string(width) + "x" +
+                    std::to_string(height) + " into " + std::to_string(size));
   }
   Letterbox box;
   box.size = size;
@@ -69,8 +68,11 @@ Coefficients precompute(int in_size, int out_size) {
   for (std::size_t xx = 0; xx < out; ++xx) {
     const double center = (static_cast<double>(xx) + 0.5) * scale;
     const double ss = 1.0 / filterscale;
-    // Truncation toward zero, as the C cast in Pillow.
+    // Truncation toward zero after + 0.5, exactly as the C cast in Pillow;
+    // lround would differ for negative values, so the check is silenced.
+    // NOLINTNEXTLINE(bugprone-incorrect-roundings)
     const int xmin = std::max(static_cast<int>(center - support + 0.5), 0);
+    // NOLINTNEXTLINE(bugprone-incorrect-roundings)
     const int xmax = std::min(static_cast<int>(center + support + 0.5), in_size) - xmin;
     std::fill(k.begin(), k.end(), 0.0);
     double ww = 0.0;
@@ -103,8 +105,8 @@ std::uint8_t clip8(std::int64_t sum) noexcept {
 std::vector<std::uint8_t> resize_bilinear_pil(const std::uint8_t* src, int width, int height,
                                               int stride, int channels, int out_width,
                                               int out_height) {
-  if (src == nullptr || width <= 0 || height <= 0 || channels <= 0 ||
-      stride < width * channels || out_width <= 0 || out_height <= 0) {
+  if (src == nullptr || width <= 0 || height <= 0 || channels <= 0 || stride < width * channels ||
+      out_width <= 0 || out_height <= 0) {
     throw Error(ErrorCode::kInvalidArgument, "resize: invalid image or size");
   }
   const auto ch = static_cast<std::size_t>(channels);

@@ -61,7 +61,7 @@ Detector::Detector(const DetectorOptions& options) : impl_(std::make_unique<Impl
     }
     impl_->session = Ort::Session(impl_->env, path.c_str(), so);
 
-    Ort::Session& s = impl_->session;
+    const Ort::Session& s = impl_->session;
     if (s.GetInputCount() != 1 || s.GetOutputCount() != 1) {
       bad_model(path, "expected one input and one output");
     }
@@ -82,8 +82,8 @@ Detector::Detector(const DetectorOptions& options) : impl_(std::make_unique<Impl
     const auto out = out_info.GetShape();
     if (out_info.GetElementType() != ONNX_TENSOR_ELEMENT_DATA_TYPE_FLOAT || out.size() != 3 ||
         out[0] != 1 || out[1] != kOutputRows || out[2] <= 0) {
-      bad_model(path, "output must be float [1, " + std::to_string(kOutputRows) +
-                          ", N] with a static N");
+      bad_model(path,
+                "output must be float [1, " + std::to_string(kOutputRows) + ", N] with a static N");
     }
     impl_->size = static_cast<int>(in[2]);
     impl_->count = static_cast<std::size_t>(out[2]);
@@ -115,8 +115,8 @@ void Detector::run() {
     // The tensors wrap the buffers this object owns: no copy in or out.
     const Ort::Value in = Ort::Value::CreateTensor<float>(
         m.memory, m.input.data(), m.input.size(), m.input_shape.data(), m.input_shape.size());
-    Ort::Value out = Ort::Value::CreateTensor<float>(
-        m.memory, m.output.data(), m.output.size(), m.output_shape.data(), m.output_shape.size());
+    Ort::Value out = Ort::Value::CreateTensor<float>(m.memory, m.output.data(), m.output.size(),
+                                                     m.output_shape.data(), m.output_shape.size());
     const std::array<const char*, 1> in_names{m.input_name.c_str()};
     const std::array<const char*, 1> out_names{m.output_name.c_str()};
     m.session.Run(Ort::RunOptions{nullptr}, in_names.data(), &in, 1, out_names.data(), &out, 1);

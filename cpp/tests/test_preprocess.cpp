@@ -71,22 +71,22 @@ TEST_SUITE("preprocess") {
   }
 
   TEST_CASE("resize matches Pillow's bilinear exactly") {
-    check_resize(5, 3, golden::kResize5x3);       // shrink both ways
-    check_resize(20, 11, golden::kResize20x11);   // enlarge both ways
-    check_resize(13, 4, golden::kResize13x4);     // one axis unchanged
+    check_resize(5, 3, golden::kResize5x3);      // shrink both ways
+    check_resize(20, 11, golden::kResize20x11);  // enlarge both ways
+    check_resize(13, 4, golden::kResize13x4);    // one axis unchanged
   }
 
   TEST_CASE("resize to the same size is the identity") {
     const std::vector<std::uint8_t> src = source();
-    const auto out = ppe::resize_bilinear_pil(src.data(), golden::kSrcWidth, golden::kSrcHeight,
-                                              golden::kSrcWidth * 3, 3, golden::kSrcWidth,
-                                              golden::kSrcHeight);
+    const auto out =
+        ppe::resize_bilinear_pil(src.data(), golden::kSrcWidth, golden::kSrcHeight,
+                                 golden::kSrcWidth * 3, 3, golden::kSrcWidth, golden::kSrcHeight);
     CHECK(out == src);
   }
 
   TEST_CASE("resize honours the row stride") {
     // Two RGB pixels per row plus 2 bytes of padding that must be ignored.
-    const std::vector<std::uint8_t> padded{10, 20, 30, 40, 50, 60, 255, 255,
+    const std::vector<std::uint8_t> padded{10, 20, 30, 40,  50,  60,  255, 255,
                                            70, 80, 90, 100, 110, 120, 255, 255};
     const auto out = ppe::resize_bilinear_pil(padded.data(), 2, 2, 8, 3, 2, 2);
     const std::vector<std::uint8_t> expected{10, 20, 30, 40, 50, 60, 70, 80, 90, 100, 110, 120};
@@ -94,7 +94,7 @@ TEST_SUITE("preprocess") {
   }
 
   TEST_CASE("resize of a constant image stays constant") {
-    const std::vector<std::uint8_t> flat(17 * 9 * 3, 200);
+    const std::vector<std::uint8_t> flat(std::size_t{17} * 9 * 3, 200);
     const auto out = ppe::resize_bilinear_pil(flat.data(), 17, 9, 17 * 3, 3, 6, 4);
     for (const std::uint8_t v : out) {
       CHECK(v == 200);
@@ -110,8 +110,8 @@ TEST_SUITE("preprocess") {
 
   TEST_CASE("preprocess pads with grey 114 and writes planar RGB / 255") {
     ppe::Image image(4, 2);
-    for (int x = 0; x < 4; ++x) {
-      for (int y = 0; y < 2; ++y) {
+    for (std::size_t x = 0; x < 4; ++x) {
+      for (std::size_t y = 0; y < 2; ++y) {
         std::uint8_t* p = image.data() + (y * 4 + x) * 3;
         p[0] = 255;
         p[1] = 0;
@@ -132,7 +132,7 @@ TEST_SUITE("preprocess") {
     CHECK(tensor[2 * 8 + 3] == 1.0F);
     CHECK(tensor[64 + 2 * 8 + 3] == 0.0F);
     CHECK(tensor[128 + 2 * 8 + 3] == 51.0F / 255.0F);
-    CHECK(tensor[7 * 8] == pad);
+    CHECK(tensor[56] == pad);  // row 7 is padding
   }
 
   TEST_CASE("preprocess reuses the caller's buffer") {

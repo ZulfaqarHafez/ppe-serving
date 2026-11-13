@@ -90,7 +90,7 @@ int main(int argc, char** argv) {
 
     ppe::Detector detector(ppe::DetectorOptions{model, threads});
     const ppe::DetectParams params;  // 0.25 and 0.7, the CLI defaults
-    const auto total = static_cast<std::size_t>(warmup + iterations);
+    const auto total = static_cast<std::size_t>(warmup) + static_cast<std::size_t>(iterations);
     const auto keep = static_cast<std::size_t>(iterations);
     std::vector<double> t_decode;
     std::vector<double> t_pre;
@@ -122,16 +122,13 @@ int main(int argc, char** argv) {
       t_post.push_back(ms(t3, t4));
       t_e2e.push_back(ms(t0, t4));
     }
-    std::cout << "{\"language\":\"cpp\",\"onnxruntime\":" +
-                     ppe::json_string(Ort::GetVersionString()) +
-                     ",\"threads\":" + std::to_string(threads) +
-                     ",\"warmup\":" + std::to_string(warmup) +
-                     ",\"iterations\":" + std::to_string(iterations) +
-                     ",\"detections\":" + std::to_string(detections) +
-                     ",\"stages_ms\":{\"decode\":" + series(t_decode) +
-                     ",\"preprocess\":" + series(t_pre) + ",\"inference\":" + series(t_infer) +
-                     ",\"postprocess\":" + series(t_post) + ",\"end_to_end\":" + series(t_e2e) +
-                     "}}\n";
+    std::cout << R"({"language":"cpp","onnxruntime":)" + ppe::json_string(Ort::GetVersionString()) +
+                     R"(,"threads":)" + std::to_string(threads) + R"(,"warmup":)" +
+                     std::to_string(warmup) + R"(,"iterations":)" + std::to_string(iterations) +
+                     R"(,"detections":)" + std::to_string(detections) +
+                     R"(,"stages_ms":{"decode":)" + series(t_decode) + R"(,"preprocess":)" +
+                     series(t_pre) + R"(,"inference":)" + series(t_infer) + R"(,"postprocess":)" +
+                     series(t_post) + R"(,"end_to_end":)" + series(t_e2e) + "}}\n";
     return 0;
   } catch (const std::exception& e) {
     std::cerr << "ppe_bench: " << e.what() << "\n";

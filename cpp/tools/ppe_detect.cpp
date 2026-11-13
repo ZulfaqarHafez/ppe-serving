@@ -9,6 +9,7 @@
 #include <onnxruntime_cxx_api.h>
 
 #include <charconv>
+#include <cstdint>
 #include <cstdio>
 #include <cstdlib>
 #include <exception>
@@ -36,7 +37,7 @@
 
 namespace {
 
-enum ExitCode : int {
+enum ExitCode : std::uint8_t {
   kOk = 0,
   kUnexpected = 1,
   kUsage = 2,
@@ -98,9 +99,10 @@ std::optional<int> parse_int(std::string_view text) {
 
 double unit_interval(std::string_view flag, std::string_view text) {
   const auto v = parse_double(text);
-  if (!v || !(*v >= 0.0 && *v <= 1.0)) {
-    throw UsageError{std::string(flag) + " needs a number from 0 to 1, got '" +
-                     std::string(text) + "'"};
+  const bool in_range = v && *v >= 0.0 && *v <= 1.0;  // false for NaN too
+  if (!in_range) {
+    throw UsageError{std::string(flag) + " needs a number from 0 to 1, got '" + std::string(text) +
+                     "'"};
   }
   return *v;
 }
@@ -135,8 +137,8 @@ std::optional<Options> parse_args(const std::vector<std::string_view>& args) {
       const std::string_view text = value();
       const auto n = parse_int(text);
       if (!n || *n < 0 || *n > 256) {
-        throw UsageError{"--threads needs a whole number from 0 to 256, got '" +
-                         std::string(text) + "'"};
+        throw UsageError{"--threads needs a whole number from 0 to 256, got '" + std::string(text) +
+                         "'"};
       }
       o.threads = *n;
     } else if (a == "--dump-dir") {
@@ -191,13 +193,12 @@ int run(const Options& o) {
       throw ppe::Error(ppe::ErrorCode::kIo, "cannot create " + o.dump_dir + ": " + ec.message());
     }
   }
-  std::string out = "{\"model\":" +
-                    ppe::json_string(std::filesystem::path(o.model).filename().string()) +
-                    ",\"input_size\":" + std::to_string(detector.input_size()) +
-                    ",\"threads\":" + std::to_string(o.threads) +
-                    ",\"score_threshold\":" + ppe::json_number(o.params.score_threshold) +
-                    ",\"iou_threshold\":" + ppe::json_number(o.params.iou_threshold) +
-                    ",\"images\":[";
+  std::string out =
+      "{\"model\":" + ppe::json_string(std::filesystem::path(o.model).filename().string()) +
+      ",\"input_size\":" + std::to_string(detector.input_size()) +
+      ",\"threads\":" + std::to_string(o.threads) +
+      ",\"score_threshold\":" + ppe::json_number(o.params.score_threshold) +
+      ",\"iou_threshold\":" + ppe::json_number(o.params.iou_threshold) + ",\"images\":[";
   bool first = true;
   for (const std::string& path : o.images) {
     const ppe::Image image = ppe::load_image(path);

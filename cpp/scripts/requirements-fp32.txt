@@ -1,0 +1,10 @@
+# Only for scripts/export_fp32.py (the optional fp32 model). Install in its own
+# virtual environment with the CPU wheel index for torch:
+#   pip install -r scripts/requirements-fp32.txt --extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.15.0+cpu
+torchvision==0.29.2+cpu
+ultralytics==8.4.210
+onnx==1.23.2
+onnxslim==0.1.99
+onnxruntime==1.29.0
+numpy==2.5.4

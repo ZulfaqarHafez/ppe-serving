@@ -91,11 +91,11 @@ TEST_SUITE("postprocess") {
   }
 
   TEST_CASE("NMS suppresses overlaps within a class only") {
-    std::vector<ppe::Detection> c{
+    const std::vector<ppe::Detection> c{
         box(1, 0.6, 0, 0, 10, 10),
-        box(1, 0.9, 1, 0, 11, 10),   // overlaps the first (IoU 9/11 > 0.7)
-        box(5, 0.8, 0, 0, 10, 10),   // same place, other class: kept
-        box(1, 0.7, 50, 50, 60, 60), // same class, elsewhere: kept
+        box(1, 0.9, 1, 0, 11, 10),    // overlaps the first (IoU 9/11 > 0.7)
+        box(5, 0.8, 0, 0, 10, 10),    // same place, other class: kept
+        box(1, 0.7, 50, 50, 60, 60),  // same class, elsewhere: kept
     };
     const auto kept = ppe::non_max_suppression(c, ppe::DetectParams{0.25, 0.7});
     REQUIRE(kept.size() == 3);
@@ -106,13 +106,13 @@ TEST_SUITE("postprocess") {
 
   TEST_CASE("NMS drops boxes at exactly the IoU limit and keeps those below") {
     // IoU of these two is 50 / 150 = 1/3.
-    std::vector<ppe::Detection> c{box(0, 0.9, 0, 0, 10, 10), box(0, 0.8, 5, 0, 15, 10)};
+    const std::vector<ppe::Detection> c{box(0, 0.9, 0, 0, 10, 10), box(0, 0.8, 5, 0, 15, 10)};
     CHECK(ppe::non_max_suppression(c, ppe::DetectParams{0.0, 1.0 / 3.0}).size() == 1);
     CHECK(ppe::non_max_suppression(c, ppe::DetectParams{0.0, 0.34}).size() == 2);
   }
 
   TEST_CASE("NMS applies the score threshold and keeps tie order") {
-    std::vector<ppe::Detection> c{
+    const std::vector<ppe::Detection> c{
         box(0, 0.5, 0, 0, 1, 1),
         box(2, 0.5, 10, 10, 11, 11),
         box(3, 0.2, 20, 20, 21, 21),
@@ -128,7 +128,7 @@ TEST_SUITE("postprocess") {
     const ppe::Letterbox lb = ppe::compute_letterbox(320, 320, 320);
     FakeOutput out(3);
     out.set(0, 50.0F, 50.0F, 20.0F, 20.0F, 1, 0.9F);
-    out.set(1, 51.0F, 50.0F, 20.0F, 20.0F, 1, 0.8F);  // suppressed
+    out.set(1, 51.0F, 50.0F, 20.0F, 20.0F, 1, 0.8F);    // suppressed
     out.set(2, 200.0F, 200.0F, 20.0F, 20.0F, 1, 0.2F);  // under 0.25
     const auto kept = ppe::postprocess(out.data.data(), out.count, lb, ppe::DetectParams{});
     REQUIRE(kept.size() == 1);

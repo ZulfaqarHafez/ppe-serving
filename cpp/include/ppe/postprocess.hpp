@@ -18,8 +18,8 @@
 namespace ppe {
 
 /// Class order of the exported model.
-inline constexpr std::array<std::string_view, 6> kClassNames = {
-    "Gloves", "Helmet", "No-Helmet", "No-gloves", "No-vest", "Vest"};
+inline constexpr std::array<std::string_view, 6> kClassNames = {"Gloves",    "Helmet",  "No-Helmet",
+                                                                "No-gloves", "No-vest", "Vest"};
 inline constexpr int kNumClasses = static_cast<int>(kClassNames.size());
 inline constexpr int kOutputRows = 4 + kNumClasses;
 

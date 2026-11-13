@@ -1,0 +1,587 @@
+{
+ "generated_by": "parity/parity.py",
+ "model": {
+  "file": "ppe_yolov8s_320_int8dyn.onnx",
+  "sha256": "d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2"
+ },
+ "cpp": "ppe_detect 0.1.0 (onnxruntime 1.29.0)",
+ "python": {
+  "version": "3.13.18",
+  "onnxruntime": "1.29.0",
+  "numpy": "2.5.3",
+  "pillow": "12.3.0"
+ },
+ "tolerances": {
+  "input": 0.0,
+  "output_abs": 1e-06,
+  "score_abs": 1e-06,
+  "box_px": 0.0001
+ },
+ "runs": [
+  {
+   "sample": "site-backs",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 5,
+     "count_python": 5,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Vest 0.553",
+      "Vest 0.524",
+      "Vest 0.515",
+      "Helmet 0.259",
+      "Helmet 0.256"
+     ],
+     "cpp": [
+      "Vest 0.553",
+      "Vest 0.524",
+      "Vest 0.515",
+      "Helmet 0.259",
+      "Helmet 0.256"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 3,
+     "count_python": 3,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Vest 0.553",
+      "Vest 0.524",
+      "Vest 0.515"
+     ],
+     "cpp": [
+      "Vest 0.553",
+      "Vest 0.524",
+      "Vest 0.515"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "rooftop-cctv",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 4,
+     "count_python": 4,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "No-Helmet 0.600",
+      "No-vest 0.566",
+      "No-vest 0.513",
+      "Helmet 0.298"
+     ],
+     "cpp": [
+      "No-Helmet 0.600",
+      "No-vest 0.566",
+      "No-vest 0.513",
+      "Helmet 0.298"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 3,
+     "count_python": 3,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "No-Helmet 0.600",
+      "No-vest 0.566",
+      "No-vest 0.513"
+     ],
+     "cpp": [
+      "No-Helmet 0.600",
+      "No-vest 0.566",
+      "No-vest 0.513"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "plant-cctv",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "No-vest 0.694",
+      "No-Helmet 0.627"
+     ],
+     "cpp": [
+      "No-vest 0.694",
+      "No-Helmet 0.627"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "No-vest 0.694",
+      "No-Helmet 0.627"
+     ],
+     "cpp": [
+      "No-vest 0.694",
+      "No-Helmet 0.627"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "hi-vis-walk",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 5,
+     "count_python": 5,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Vest 0.514",
+      "Vest 0.493",
+      "No-Helmet 0.460",
+      "Helmet 0.328",
+      "Vest 0.309"
+     ],
+     "cpp": [
+      "Vest 0.514",
+      "Vest 0.493",
+      "No-Helmet 0.460",
+      "Helmet 0.328",
+      "Vest 0.309"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 1,
+     "count_python": 1,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Vest 0.514"
+     ],
+     "cpp": [
+      "Vest 0.514"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "packing-cctv",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 1,
+     "count_python": 1,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Gloves 0.399"
+     ],
+     "cpp": [
+      "Gloves 0.399"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 0,
+     "count_python": 0,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [],
+     "cpp": []
+    }
+   }
+  },
+  {
+   "sample": "site-backs",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 5,
+     "count_python": 5,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Vest 0.553",
+      "Vest 0.524",
+      "Vest 0.515",
+      "Helmet 0.259",
+      "Helmet 0.256"
+     ],
+     "cpp": [
+      "Vest 0.553",
+      "Vest 0.524",
+      "Vest 0.515",
+      "Helmet 0.259",
+      "Helmet 0.256"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 3,
+     "count_python": 3,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Vest 0.553",
+      "Vest 0.524",
+      "Vest 0.515"
+     ],
+     "cpp": [
+      "Vest 0.553",
+      "Vest 0.524",
+      "Vest 0.515"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "rooftop-cctv",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 4,
+     "count_python": 4,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "No-Helmet 0.600",
+      "No-vest 0.566",
+      "No-vest 0.513",
+      "Helmet 0.298"
+     ],
+     "cpp": [
+      "No-Helmet 0.600",
+      "No-vest 0.566",
+      "No-vest 0.513",
+      "Helmet 0.298"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 3,
+     "count_python": 3,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "No-Helmet 0.600",
+      "No-vest 0.566",
+      "No-vest 0.513"
+     ],
+     "cpp": [
+      "No-Helmet 0.600",
+      "No-vest 0.566",
+      "No-vest 0.513"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "plant-cctv",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "No-vest 0.694",
+      "No-Helmet 0.627"
+     ],
+     "cpp": [
+      "No-vest 0.694",
+      "No-Helmet 0.627"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "No-vest 0.694",
+      "No-Helmet 0.627"
+     ],
+     "cpp": [
+      "No-vest 0.694",
+      "No-Helmet 0.627"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "hi-vis-walk",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 5,
+     "count_python": 5,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Vest 0.514",
+      "Vest 0.493",
+      "No-Helmet 0.460",
+      "Helmet 0.328",
+      "Vest 0.309"
+     ],
+     "cpp": [
+      "Vest 0.514",
+      "Vest 0.493",
+      "No-Helmet 0.460",
+      "Helmet 0.328",
+      "Vest 0.309"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 1,
+     "count_python": 1,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Vest 0.514"
+     ],
+     "cpp": [
+      "Vest 0.514"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "packing-cctv",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 1,
+     "count_python": 1,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [
+      "Gloves 0.399"
+     ],
+     "cpp": [
+      "Gloves 0.399"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 0,
+     "count_python": 0,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "reproduces_reference_cpp": true,
+     "reproduces_reference_python": true,
+     "reference": [],
+     "cpp": []
+    }
+   }
+  }
+ ],
+ "summary": {
+  "passed": true,
+  "comparisons": 10,
+  "inputs_equal": 10,
+  "outputs_bit_identical": 10,
+  "max_output_abs_diff": 0.0,
+  "detection_lists": 20,
+  "detection_lists_bit_identical": 20,
+  "max_score_diff": 0.0,
+  "max_box_diff_px": 0.0,
+  "detections_compared": 52,
+  "reference_lists": 20,
+  "reference_reproduced_cpp": 20,
+  "reference_reproduced_python": 20
+ }
+}

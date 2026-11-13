@@ -1,0 +1,448 @@
+{
+ "generated_by": "parity/parity.py",
+ "model": {
+  "file": "ppe_yolov8s_320_fp32.onnx",
+  "sha256": "a1d0659510140172deed05a2aede20b4899a1026b5cbe21fdbb8b03c235923d0"
+ },
+ "cpp": "ppe_detect 0.1.0 (onnxruntime 1.29.0)",
+ "python": {
+  "version": "3.13.18",
+  "onnxruntime": "1.29.0",
+  "numpy": "2.5.3",
+  "pillow": "12.3.0"
+ },
+ "tolerances": {
+  "input": 0.0,
+  "output_abs": 1e-06,
+  "score_abs": 1e-06,
+  "box_px": 0.0001
+ },
+ "runs": [
+  {
+   "sample": "site-backs",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 4,
+     "count_python": 4,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "Vest 0.563",
+      "Vest 0.517",
+      "Vest 0.510",
+      "Helmet 0.274"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 3,
+     "count_python": 3,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "Vest 0.563",
+      "Vest 0.517",
+      "Vest 0.510"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "rooftop-cctv",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 4,
+     "count_python": 4,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "No-Helmet 0.583",
+      "No-vest 0.539",
+      "No-vest 0.469",
+      "Helmet 0.327"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "No-Helmet 0.583",
+      "No-vest 0.539"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "plant-cctv",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "No-vest 0.672",
+      "No-Helmet 0.595"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "No-vest 0.672",
+      "No-Helmet 0.595"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "hi-vis-walk",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 6,
+     "count_python": 6,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "Vest 0.497",
+      "Vest 0.473",
+      "No-Helmet 0.466",
+      "Vest 0.322",
+      "Helmet 0.281",
+      "No-Helmet 0.255"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 0,
+     "count_python": 0,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": []
+    }
+   }
+  },
+  {
+   "sample": "packing-cctv",
+   "threads": 1,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 1,
+     "count_python": 1,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "Gloves 0.407"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 0,
+     "count_python": 0,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": []
+    }
+   }
+  },
+  {
+   "sample": "site-backs",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 4,
+     "count_python": 4,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "Vest 0.563",
+      "Vest 0.517",
+      "Vest 0.510",
+      "Helmet 0.274"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 3,
+     "count_python": 3,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "Vest 0.563",
+      "Vest 0.517",
+      "Vest 0.510"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "rooftop-cctv",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 4,
+     "count_python": 4,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "No-Helmet 0.583",
+      "No-vest 0.539",
+      "No-vest 0.469",
+      "Helmet 0.327"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "No-Helmet 0.583",
+      "No-vest 0.539"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "plant-cctv",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "No-vest 0.672",
+      "No-Helmet 0.595"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 2,
+     "count_python": 2,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "No-vest 0.672",
+      "No-Helmet 0.595"
+     ]
+    }
+   }
+  },
+  {
+   "sample": "hi-vis-walk",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 6,
+     "count_python": 6,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "Vest 0.497",
+      "Vest 0.473",
+      "No-Helmet 0.466",
+      "Vest 0.322",
+      "Helmet 0.281",
+      "No-Helmet 0.255"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 0,
+     "count_python": 0,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": []
+    }
+   }
+  },
+  {
+   "sample": "packing-cctv",
+   "threads": 0,
+   "input": {
+    "elements": 307200,
+    "equal": true,
+    "max_abs_diff": 0.0
+   },
+   "output": {
+    "elements": 21000,
+    "bit_identical": true,
+    "differing_elements": 0,
+    "max_abs_diff": 0.0
+   },
+   "detections": {
+    "0.25": {
+     "count_cpp": 1,
+     "count_python": 1,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": [
+      "Gloves 0.407"
+     ]
+    },
+    "0.5": {
+     "count_cpp": 0,
+     "count_python": 0,
+     "labels_equal": true,
+     "max_score_diff": 0.0,
+     "max_box_diff_px": 0.0,
+     "bit_identical": true,
+     "cpp": []
+    }
+   }
+  }
+ ],
+ "summary": {
+  "passed": true,
+  "comparisons": 10,
+  "inputs_equal": 10,
+  "outputs_bit_identical": 10,
+  "max_output_abs_diff": 0.0,
+  "detection_lists": 20,
+  "detection_lists_bit_identical": 20,
+  "max_score_diff": 0.0,
+  "max_box_diff_px": 0.0,
+  "detections_compared": 48
+ }
+}
