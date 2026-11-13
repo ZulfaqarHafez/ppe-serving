@@ -1,0 +1,329 @@
+{
+ "reference": "tests/data/samples.json (the site's record, Pillow bilinear + onnxruntime)",
+ "model_sha256": "d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2",
+ "onnxruntime": "1.31.1",
+ "score_tolerance": 0.001,
+ "tolerance_note": "samples.json rounds scores to 3 decimals, so 0.0005 is rounding alone",
+ "cases": 10,
+ "detections_compared": 26,
+ "all_pass": true,
+ "worst_score_gap": 0.000492,
+ "results": [
+  {
+   "sample": "site-backs",
+   "threshold": 0.25,
+   "expected": [
+    {
+     "label": "Vest",
+     "score": 0.553
+    },
+    {
+     "label": "Vest",
+     "score": 0.524
+    },
+    {
+     "label": "Vest",
+     "score": 0.515
+    },
+    {
+     "label": "Helmet",
+     "score": 0.259
+    },
+    {
+     "label": "Helmet",
+     "score": 0.256
+    }
+   ],
+   "service": [
+    {
+     "label": "Vest",
+     "score": 0.55305
+    },
+    {
+     "label": "Vest",
+     "score": 0.523522
+    },
+    {
+     "label": "Vest",
+     "score": 0.514997
+    },
+    {
+     "label": "Helmet",
+     "score": 0.259467
+    },
+    {
+     "label": "Helmet",
+     "score": 0.256385
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000478,
+   "pass": true
+  },
+  {
+   "sample": "site-backs",
+   "threshold": 0.5,
+   "expected": [
+    {
+     "label": "Vest",
+     "score": 0.553
+    },
+    {
+     "label": "Vest",
+     "score": 0.524
+    },
+    {
+     "label": "Vest",
+     "score": 0.515
+    }
+   ],
+   "service": [
+    {
+     "label": "Vest",
+     "score": 0.55305
+    },
+    {
+     "label": "Vest",
+     "score": 0.523522
+    },
+    {
+     "label": "Vest",
+     "score": 0.514997
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000478,
+   "pass": true
+  },
+  {
+   "sample": "rooftop-cctv",
+   "threshold": 0.25,
+   "expected": [
+    {
+     "label": "No-Helmet",
+     "score": 0.6
+    },
+    {
+     "label": "No-vest",
+     "score": 0.566
+    },
+    {
+     "label": "No-vest",
+     "score": 0.513
+    },
+    {
+     "label": "Helmet",
+     "score": 0.298
+    }
+   ],
+   "service": [
+    {
+     "label": "No-Helmet",
+     "score": 0.599722
+    },
+    {
+     "label": "No-vest",
+     "score": 0.565805
+    },
+    {
+     "label": "No-vest",
+     "score": 0.512551
+    },
+    {
+     "label": "Helmet",
+     "score": 0.297906
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000449,
+   "pass": true
+  },
+  {
+   "sample": "rooftop-cctv",
+   "threshold": 0.5,
+   "expected": [
+    {
+     "label": "No-Helmet",
+     "score": 0.6
+    },
+    {
+     "label": "No-vest",
+     "score": 0.566
+    },
+    {
+     "label": "No-vest",
+     "score": 0.513
+    }
+   ],
+   "service": [
+    {
+     "label": "No-Helmet",
+     "score": 0.599722
+    },
+    {
+     "label": "No-vest",
+     "score": 0.565805
+    },
+    {
+     "label": "No-vest",
+     "score": 0.512551
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000449,
+   "pass": true
+  },
+  {
+   "sample": "plant-cctv",
+   "threshold": 0.25,
+   "expected": [
+    {
+     "label": "No-vest",
+     "score": 0.694
+    },
+    {
+     "label": "No-Helmet",
+     "score": 0.627
+    }
+   ],
+   "service": [
+    {
+     "label": "No-vest",
+     "score": 0.693633
+    },
+    {
+     "label": "No-Helmet",
+     "score": 0.626508
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000492,
+   "pass": true
+  },
+  {
+   "sample": "plant-cctv",
+   "threshold": 0.5,
+   "expected": [
+    {
+     "label": "No-vest",
+     "score": 0.694
+    },
+    {
+     "label": "No-Helmet",
+     "score": 0.627
+    }
+   ],
+   "service": [
+    {
+     "label": "No-vest",
+     "score": 0.693633
+    },
+    {
+     "label": "No-Helmet",
+     "score": 0.626508
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000492,
+   "pass": true
+  },
+  {
+   "sample": "hi-vis-walk",
+   "threshold": 0.25,
+   "expected": [
+    {
+     "label": "Vest",
+     "score": 0.514
+    },
+    {
+     "label": "Vest",
+     "score": 0.493
+    },
+    {
+     "label": "No-Helmet",
+     "score": 0.46
+    },
+    {
+     "label": "Helmet",
+     "score": 0.328
+    },
+    {
+     "label": "Vest",
+     "score": 0.309
+    }
+   ],
+   "service": [
+    {
+     "label": "Vest",
+     "score": 0.514352
+    },
+    {
+     "label": "Vest",
+     "score": 0.493319
+    },
+    {
+     "label": "No-Helmet",
+     "score": 0.459776
+    },
+    {
+     "label": "Helmet",
+     "score": 0.327667
+    },
+    {
+     "label": "Vest",
+     "score": 0.308875
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000352,
+   "pass": true
+  },
+  {
+   "sample": "hi-vis-walk",
+   "threshold": 0.5,
+   "expected": [
+    {
+     "label": "Vest",
+     "score": 0.514
+    }
+   ],
+   "service": [
+    {
+     "label": "Vest",
+     "score": 0.514352
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000352,
+   "pass": true
+  },
+  {
+   "sample": "packing-cctv",
+   "threshold": 0.25,
+   "expected": [
+    {
+     "label": "Gloves",
+     "score": 0.399
+    }
+   ],
+   "service": [
+    {
+     "label": "Gloves",
+     "score": 0.398716
+    }
+   ],
+   "labels_match": true,
+   "max_score_gap": 0.000284,
+   "pass": true
+  },
+  {
+   "sample": "packing-cctv",
+   "threshold": 0.5,
+   "expected": [],
+   "service": [],
+   "labels_match": true,
+   "max_score_gap": 0.0,
+   "pass": true
+  }
+ ]
+}
