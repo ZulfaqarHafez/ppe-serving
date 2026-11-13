@@ -1,0 +1,54 @@
+{
+ "request_id": "16700d4bbc5b4286ab0c03d6fa4f0bcf",
+ "model": {
+  "name": "ppe-yolov8s",
+  "version": "2026.11.11-320-int8dyn",
+  "sha256": "d0a6c62f4bda6733f443b22bf9dce288b8f082ca0fc2f404a4931eb7cf0cbac2",
+  "input_size": 320
+ },
+ "image": {
+  "width": 640,
+  "height": 640
+ },
+ "threshold": 0.25,
+ "iou_threshold": 0.7,
+ "detections": [
+  {
+   "label": "No-vest",
+   "class_id": 4,
+   "score": 0.693633,
+   "missing_item": true,
+   "box": {
+    "x1": 452.75,
+    "y1": 250.21,
+    "x2": 507.39,
+    "y2": 342.88
+   }
+  },
+  {
+   "label": "No-Helmet",
+   "class_id": 2,
+   "score": 0.626508,
+   "missing_item": true,
+   "box": {
+    "x1": 473.1,
+    "y1": 210.7,
+    "x2": 503.6,
+    "y2": 234.9
+   }
+  }
+ ],
+ "timing_ms": {
+  "decode": 57.28,
+  "preprocess": 4.994,
+  "inference": 84.629,
+  "postprocess": 0.521,
+  "queue": 1.676,
+  "total": 149.548
+ },
+ "client": {
+  "status": 200,
+  "round_trip_ms": 176.3,
+  "url": "http://ppe-service.ppe.svc.cluster.local/v1/detect"
+ }
+}

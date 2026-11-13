@@ -1,0 +1,17 @@
+# One-node kind cluster for the PPE service (created by scripts/kind_up.sh).
+kind: Cluster
+apiVersion: kind.x-k8s.io/v1alpha4
+name: ppe
+nodes:
+  - role: control-plane
+    # SANDBOX-SPECIFIC: derived node image with the runc wrapper (kind/node/).
+    image: ppe-kind-node:v1.33.1
+    kubeadmConfigPatches:
+      - |
+        kind: ClusterConfiguration
+        apiServer:
+          extraArgs:
+            # SANDBOX-SPECIFIC: the API server got 403 when calling
+            # metrics-server through its ClusterIP here; routing aggregated
+            # APIs straight to endpoint IPs avoids that path.
+            enable-aggregator-routing: "true"

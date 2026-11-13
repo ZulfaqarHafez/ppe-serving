@@ -1,0 +1,55 @@
+# Local kind cluster: image loaded with `kind load image-archive` (never pulled),
+# a NodePort so the host can send load through kube-proxy, and an HPA that
+# starts from one pod and scales down quickly so a short demo shows both ways.
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+namespace: ppe
+resources:
+  - namespace.yaml
+  - ../../base
+images:
+  - name: ghcr.io/zulfaqarhafez/ppe-service
+    newName: ppe-service
+    newTag: dev
+patches:
+  - target: {kind: Deployment, name: ppe-service}
+    patch: |
+      - op: replace
+        path: /spec/replicas
+        value: 1
+      - op: add
+        path: /spec/template/spec/containers/0/imagePullPolicy
+        value: Never
+  - target: {kind: Service, name: ppe-service}
+    patch: |
+      - op: add
+        path: /spec/type
+        value: NodePort
+      - op: add
+        path: /spec/ports/0/nodePort
+        value: 30080
+  - target: {kind: HorizontalPodAutoscaler, name: ppe-service}
+    patch: |
+      - op: replace
+        path: /spec/minReplicas
+        value: 1
+      - op: replace
+        path: /spec/maxReplicas
+        value: 4
+      - op: add
+        path: /spec/behavior
+        value:
+          scaleUp:
+            stabilizationWindowSeconds: 0
+            policies: [{type: Pods, value: 4, periodSeconds: 15}]
+          scaleDown:
+            stabilizationWindowSeconds: 30
+            policies: [{type: Percent, value: 100, periodSeconds: 15}]
+  # One replica at rest here, so a minAvailable of 1 would block node drains.
+  - target: {kind: PodDisruptionBudget, name: ppe-service}
+    patch: |
+      - op: remove
+        path: /spec/minAvailable
+      - op: add
+        path: /spec/maxUnavailable
+        value: 1

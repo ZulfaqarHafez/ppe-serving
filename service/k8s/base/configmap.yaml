@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ppe-service
+data:
+  PPE_LOG_LEVEL: INFO
+  PPE_MAX_IN_FLIGHT: "32"
+  PPE_REQUEST_TIMEOUT_S: "10"
+  PPE_SCORE_THRESHOLD: "0.25"
+  # Below terminationGracePeriodSeconds minus the preStop sleep.
+  PPE_GRACEFUL_TIMEOUT_S: "20"
+  # 0 = one single-threaded inference worker per CPU of the container's limit.
+  PPE_WORKERS: "0"
+  PPE_INTRA_OP_THREADS: "1"
